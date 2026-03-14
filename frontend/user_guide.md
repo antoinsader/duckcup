@@ -27,7 +27,7 @@ ThreadMind is a platform for connecting your communication channels, browsing yo
 - Manage open pages as tabs and reorder them to match your workflow.
 
 ### High-Level Architecture Diagram
-![ThreadMind high-level architecture](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/app-overview.png)
+![ThreadMind high-level architecture](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/app-overview.png)
 
 ---
 
@@ -36,7 +36,7 @@ ThreadMind is a platform for connecting your communication channels, browsing yo
 ThreadMind uses a tab-based navigation system. Every page you visit opens as a tab in the top bar, and you can have multiple pages open at the same time without losing your place.
 
 ### Working With Tabs
-![Tabs navigation](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/tabs_navigation.gif)
+![Tabs navigation](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/tabs_navigation.gif)
 
 
 
@@ -54,7 +54,7 @@ ThreadMind uses a tab-based navigation system. Every page you visit opens as a t
 The theme toggle button in the top navigation bar switches between dark mode (the default) and light mode. Your preference is saved locally and remembered across sessions.
 
 
-![Light/Dark mode](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/theme_toggle.gif)
+![Light/Dark mode](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/theme_toggle.gif)
 
 ---
 
@@ -62,7 +62,7 @@ The theme toggle button in the top navigation bar switches between dark mode (th
 
 The command palette is a quick-action search bar built into the top navigation. It lets you navigate to any page or trigger common actions without reaching for the mouse.
 
-![Command bar](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/command.gif)
+![Command bar](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/command.gif)
 
 
 ### How To Use It
@@ -97,7 +97,7 @@ In addition to navigation, there are action commands:
 
 The Login page is the entry point to the application. Most pages require authentication, so logging in is your first step. You can either sign in with an existing account or register a brand new one from the same screen.
 
-![Login](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/login.gif)
+![Login](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/login.gif)
 
 
 ### Signing In
@@ -130,7 +130,7 @@ The Home page is your dashboard. It gives you a quick snapshot of the applicatio
 
 
 ### Application Status Card
-![Login](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/user_card.png)
+![Login](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/user_card.png)
 
 At the top of the Home page you will see a status card showing:
 - Your **username**.
@@ -140,7 +140,7 @@ At the top of the Home page you will see a status card showing:
 
 ### Your Datasets
 
-![user_ds_card](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/user_ds_card.png)
+![user_ds_card](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/user_ds_card.png)
 
 A compact table lists all your saved datasets with:
 - Dataset number and name.
@@ -149,7 +149,7 @@ A compact table lists all your saved datasets with:
 
 ### Your Accounts
 
-![user_accounts](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/user_accounts.png)
+![user_accounts](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/user_accounts.png)
 
 The accounts section gives you a searchable, manageable list of all connected accounts. You can add new accounts, delete existing ones, and re-login accounts that need credential renewal. If an account token is no longer valid, a **Re-login** button is shown for that account, and you need to log in again to activate it. This is covered in full in the User Accounts section of this guide.
 
@@ -159,7 +159,7 @@ The API Keys card at the bottom of the Home page is where you configure Hugging 
 
 **Hugging-Face & Pollination Tokens**
 
-![user_keys](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/user_keys.png)
+![user_keys](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/user_keys.png)
 
 
 - Shows account meta information when valid.
@@ -184,7 +184,7 @@ The Accounts page lets you manage all the provider connections you have set up. 
 
 ### Connecting A New Account
 
-![accounts_login](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/accounts_login.png)
+![accounts_login](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/accounts_login.png)
 
 1. Click **Add an account** (or use the command palette and type "add account").
 2. A popup shows the available providers (for example Gmail, Telegram).
@@ -225,7 +225,7 @@ You can also open individual emails to inspect them.
 
 The left sidebar lists all your Gmail accounts. Expanding an account shows the most recently loaded emails as clickable child rows, each labelled with the sender signature and date.
 
-![emails_sidebar](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/emails_sidebar.gif)
+![emails_sidebar](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/emails_sidebar.gif)
 
 
 - Clicking an account scrolls the main page to that account's card.
@@ -234,7 +234,7 @@ The left sidebar lists all your Gmail accounts. Expanding an account shows the m
 
 ### Account Email Card
 
-![emails_card](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/emails_card.png)
+![emails_card](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/emails_card.png)
 
 
 Each Gmail account gets its own card in the main area containing:
@@ -246,7 +246,7 @@ Each Gmail account gets its own card in the main area containing:
 
 Before loading emails, you can narrow your query with these filters:
 
-![emails_filter](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/emails_filter.gif)
+![emails_filter](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/emails_filter.gif)
 
 
 - **Sender** — type a sender's name or email address. Autocomplete suggestions are loaded from your inbox metadata.
@@ -280,7 +280,7 @@ Emails are fetched using the IMAP protocol, which is inherently slower than loca
 
 Click any row to open the full email details popup:
 
-![email_details](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/email_details.png)
+![email_details](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/email_details.png)
 
 
 - All email fields are displayed in a structured view (sender, date, subject, flags, body).
@@ -289,7 +289,7 @@ Click any row to open the full email details popup:
 
 ### Saving As A Dataset
 
-![save_emails_dataset](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/save_emails_dataset.png)
+![save_emails_dataset](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/save_emails_dataset.png)
 
 Once you are satisfied with the filtered result, click the **Save as dataset** button to open the save popup:
 1. **Dataset scope** — shows the criteria you applied and the total email count that will be included.
@@ -315,13 +315,13 @@ The Telegram page lets you browse messages from your connected Telegram accounts
 
 All Telegram accounts appear in the sidebar. Each account expands to show the active entities (groups, channels and users).
 
-![telegram_sidebar](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/telegram_sidebar.png)
+![telegram_sidebar](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/telegram_sidebar.png)
 
 - Click an account in the sidebar to scroll to its card.
 
 ### Choosing Entities — Sender Selection
 
-![telegram_senders.gif](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/telegram_senders.gif)
+![telegram_senders.gif](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/telegram_senders.gif)
 
 
 Inside each account card you will see a list of entity chips (senders):
@@ -336,7 +336,7 @@ Inside each account card you will see a list of entity chips (senders):
 
 ### Date Filters
 
-![tg_dates](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/tg_dates.gif)
+![tg_dates](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/tg_dates.gif)
 
 
 Use the date filter buttons above the table to narrow messages by time window:
@@ -353,7 +353,7 @@ Using an explicit range deactivates the preset buttons, and activating a preset 
 Date filter row counts update whenever you change your sender selection, so the number on each button always reflects the messages visible with your current sender filter.
 
 ### Keywords filter
-![telegram_keywords](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/tg_keywords.gif)
+![telegram_keywords](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/tg_keywords.gif)
 
 Each chip shows a keyword represented in the messages and how many messages contain it.
 Click one or more keyword chips to show their associated messages in the table. 
@@ -362,7 +362,7 @@ This is useful for quickly isolating messages that discuss a specific person or 
 
 ### Message Table Columns
 
-![telegram_messages](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/telegram_messages.png)
+![telegram_messages](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/telegram_messages.png)
 
 The combined messages from all selected entities appear in a datatable:
 - **Date** — message timestamp, formatted for readability.
@@ -387,7 +387,7 @@ Click any message row to open a full details popup showing all message fields. I
 Each entity also has a details button that opens a full record: chat ID, chat name, chat type, and any additional metadata stored.
 
 ### Collapsable cards
-![collapsable_cards](https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/tg_collapsable.gif)
+![collapsable_cards](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/tg_collapsable.gif)
 
 Take benefit from the collapsing cards if you want to have better view.
 
@@ -475,8 +475,8 @@ This operation extracts the most significant terms from the dataset to give you 
 - The advanced extractor is slower but produces more meaningful scores for datasets with varied content.
 
 ### Suggested Image Slots
-- [IMAGE_PLACEHOLDER] `https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/datasets-keywords-output.png`
-- [GIF_PLACEHOLDER] `https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/datasets-keywords-flow.gif`
+- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-keywords-output.png`
+- [GIF_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-keywords-flow.gif`
 
 ---
 
@@ -504,8 +504,8 @@ Groups the messages from each sender into topic clusters independently. The resu
 - Expandable messages datatable with the full rows in that cluster
 
 ### Suggested Image Slots
-- [IMAGE_PLACEHOLDER] `https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/datasets-clusters-per-sender.png`
-- [IMAGE_PLACEHOLDER] `https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/datasets-cluster-card.png`
+- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-clusters-per-sender.png`
+- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-cluster-card.png`
 
 ---
 
@@ -535,10 +535,10 @@ Every cluster card (from both Clusters Per Sender and Clusters All) has two AI-p
 4. Click **Summarize**. The summary text appears inside the card.
 
 ### Suggested Image Slots
-- [IMAGE_PLACEHOLDER] `https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/datasets-clusters-all.png`
-- [IMAGE_PLACEHOLDER] `https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/datasets-cluster-ai-title.png`
-- [IMAGE_PLACEHOLDER] `https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/datasets-cluster-summarize.png`
-- [GIF_PLACEHOLDER] `https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/datasets-cluster-generate-title.gif`
+- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-clusters-all.png`
+- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-cluster-ai-title.png`
+- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-cluster-summarize.png`
+- [GIF_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-cluster-generate-title.gif`
 
 ---
 
@@ -557,9 +557,9 @@ This is the most flexible analysis tool on the page. Instead of summarizing a wh
 This is especially powerful when you want to summarize a specific conversation thread, a batch of messages on a single topic, or a curated sample you selected by hand rather than trusting the automatic clustering.
 
 ### Suggested Image Slots
-- [IMAGE_PLACEHOLDER] `https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/datasets-summarize-groups.png`
-- [IMAGE_PLACEHOLDER] `https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/datasets-summarize-prompt-preview.png`
-- [GIF_PLACEHOLDER] `https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/datasets-summarize-custom-selection.gif`
+- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-summarize-groups.png`
+- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-summarize-prompt-preview.png`
+- [GIF_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-summarize-custom-selection.gif`
 
 ---
 
@@ -592,7 +592,7 @@ Click the **Logout** button to end your session. This clears all locally cached 
 You can also log out from the command palette by typing "logout".
 
 ### Suggested Image Slots
-- [IMAGE_PLACEHOLDER] `https://github.com/antoinsader/threadmind/tree/publish/frontend/public/docs/user_guide_assets/profile-page.png`
+- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/profile-page.png`
 
 ---
 
