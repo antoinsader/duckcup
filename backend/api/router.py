@@ -163,7 +163,6 @@ async def infrastructure_error_handler(request: Request, ex: InfrastructureError
     ip = request.client.host
     method = request.method
     path = request.url.path
-    
 
     error_logger.error(
         f"INFRASTRUCTURE ERROR | Layer: {ex.layer} | "

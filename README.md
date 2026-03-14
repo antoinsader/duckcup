@@ -22,6 +22,9 @@ The project can be run in two ways:
 - Save selected emails/messages as your datasets
 - Perform NLP services on your datasets like clustering, summarization,...
 
+Instructions for using the application are available in:
+[User guide](https://github.com/antoinsader/threadmind/blob/publish/frontend/user_guide.md)
+
 ## Quick Start (Recommended: Docker)
 
 The easiest way to run the project is using Docker.
@@ -89,10 +92,6 @@ If you prefer to run the services independently for development, follow the inst
 - Download dependencies using ``` npm install ```
 - Run the application using ``` npm run start ```
 
-
-## User Guide:
-Instructions for using the application are available in:
-[User guide](https://github.com/antoinsader/threadmind/blob/publish/frontend/user_guide.md)
 
 This document explains how users can use the application different services.
 
