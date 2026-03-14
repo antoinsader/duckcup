@@ -11,8 +11,8 @@ The frontend provides the user interface for interacting with the system.
 
 The project can be run in two ways:
 
-1- Using Docker (recommended) – fastest way to run the entire system
-2- Running backend and frontend independently – useful for development
+- Using Docker (recommended) – fastest way to run the entire system
+- Running backend and frontend independently – useful for development
 
 ## What you can do inside the application:
 
@@ -49,7 +49,7 @@ Create the backend environment configuration:
 
 Edit the file if needed and generate the required secrets.
 Detailed instructions are available in:
-[text](https://github.com/antoinsader/threadmind/blob/publish/backend/README.md)
+[backend/README.md](https://github.com/antoinsader/threadmind/blob/publish/backend/README.md)
 
 
 4. Start the application
