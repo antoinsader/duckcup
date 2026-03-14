@@ -1,0 +1,42 @@
+.html_popup_root, .email_summary_popup_root {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-height: 260px;
+}
+
+.toggle_row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.loading_root {
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.html_content_root {
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  background: var(--surface-0);
+  color: var(--text-main);
+  padding: 1rem;
+  min-height: 220px;
+  max-height: 58vh;
+  overflow: auto;
+}
+
+.removed_interactive_placeholder {
+  display: inline-block;
+  border: 1px dashed var(--border-subtle);
+  border-radius: 6px;
+  padding: 0.15rem 0.35rem;
+  background: var(--surface-2);
+  color: var(--text-sub);
+}
+
+
+

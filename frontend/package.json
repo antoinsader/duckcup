@@ -1,0 +1,48 @@
+{
+  "name": "thread-mind-frontend",
+  "version": "1.0.0",
+  "description": "ThreadMind Frontend is a React application for connecting emails and telegram accounts, browsing content, creating datasets, and running NLP workflows on those datasets.",
+  "dependencies": {
+    "@tanstack/react-table": "^8.21.3",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.13.5",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-hot-toast": "^2.6.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.13.1",
+    "react-scripts": "5.0.1",
+    "saas": "^1.0.0",
+    "sass": "^1.97.3",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "prestart": "node scripts/copy_user_guide.js",
+    "start": "react-scripts start",
+    "prebuild": "node scripts/copy_user_guide.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

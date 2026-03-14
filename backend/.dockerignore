@@ -1,0 +1,26 @@
+
+# misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env
+
+
+data/
+test.py
+test.ipynb
+db/
+myenv
+
+# logs
+logs/
+
+# python bytecode/cache
+**/__pycache__/
+*.pyc
+__pycache__/
+
+# local scratch files
+test.rest
+draft.txt

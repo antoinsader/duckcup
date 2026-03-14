@@ -1,0 +1,125 @@
+.select_root {
+  position: relative;
+  min-width: 230px;
+}
+
+.compact {
+  min-width: 170px;
+}
+
+.input_label {
+  color: var(--text-sub);
+  font-size: 0.78rem;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.select_trigger {
+  width: 100%;
+  border: 1px solid var(--surface-4);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--text-main);
+  padding: 0.45rem 0.55rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.compact .select_trigger {
+  min-height: 40px;
+  padding: 0 0.55rem;
+}
+
+.select_trigger:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.trigger_texts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.compact .trigger_texts {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.trigger_title {
+  color: var(--text-main);
+  font-size: 0.8rem;
+}
+
+.trigger_subtitle {
+  color: var(--text-sub);
+  font-size: 0.72rem;
+}
+
+.trigger_icon {
+  color: var(--text-sub);
+  font-size: 0.7rem;
+}
+
+.options_popover {
+  position: absolute;
+  top: calc(100% + 0.25rem);
+  left: 0;
+  right: 0;
+  background: var(--surface-1);
+  border: 1px solid var(--accent-soft);
+  border-radius: 8px;
+  max-height: 300px;
+  overflow: auto;
+  z-index: 9999;
+}
+
+.option_item {
+  padding: 0.5rem 0.55rem;
+  border-bottom: 1px solid var(--surface-1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.option_item:last-child {
+  border-bottom: none;
+}
+
+.option_item:hover {
+  background: var(--accent-soft);
+}
+
+.option_selected {
+  background: var(--accent-soft);
+}
+
+.option_disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.option_disabled:hover {
+  background: var(--surface-1-gradient);
+}
+
+.option_title {
+  color: var(--text-main);
+  font-size: 0.8rem;
+}
+
+.option_subtitle {
+  color: var(--text-sub);
+  font-size: 0.72rem;
+}
+
+.option_hint {
+  margin-top: 0.15rem;
+  color: var(--secondary-bg);
+  font-size: 0.7rem;
+}

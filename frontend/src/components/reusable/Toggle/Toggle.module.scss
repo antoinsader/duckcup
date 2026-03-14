@@ -1,0 +1,53 @@
+.toggle_root {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+}
+
+.toggle_input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle_slider {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--surface-3);
+  border: 1px solid var(--border-subtle);
+  transition: background-color 0.2s ease;
+}
+
+.toggle_slider::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--text-bright);
+  transition: transform 0.2s ease;
+}
+
+.toggle_input:checked + .toggle_slider {
+  background: var(--accent);
+}
+
+.toggle_input:checked + .toggle_slider::before {
+  transform: translateX(18px);
+}
+
+.toggle_input:disabled + .toggle_slider {
+  opacity: 0.55;
+}
+
+.toggle_label {
+  color: var(--text-main);
+  font-size: 0.9rem;
+  user-select: none;
+}

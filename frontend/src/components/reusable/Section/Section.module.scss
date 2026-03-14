@@ -1,0 +1,131 @@
+.section_root {
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-2);
+  border-radius: 12px;
+  overflow: hidden;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.section_open {
+  border-color: var(--accent);
+}
+
+.section_closed {
+  border-color: var(--border-subtle);
+}
+.section_closed .section_content_wrap {
+  min-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.section_open .section_content_wrap {
+  overflow: hidden;
+  opacity: 1;
+}
+
+.section_header {
+  width: 100%;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.section_open .section_header {
+  background: var(--surface-3);
+  border-bottom-color: var(--border-active);
+}
+
+.section_closed .section_header {
+  background: var(--surface-2);
+}
+
+.section_header:hover {
+  background: var(--surface-3) !important;
+}
+
+.section_header:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+.section_header:hover .section_icon,
+.section_header:focus-visible .section_icon {
+  border-color: var(--accent);
+  color: var(--text-bright);
+  background: var(--surface-3);
+}
+
+.section_header_content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.section_icon {
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  font-weight: 700;
+  flex-shrink: 0;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.section_content_wrap {
+  overflow: hidden;
+  max-height: 1000vh;
+  transition:
+    max-height 0.25s ease,
+    opacity 0.2s ease;
+  min-height: 0;
+}
+
+.section_content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  overflow: scroll;
+  max-height: 90vh;
+}
+
+@media (max-width: 640px) {
+  .section_header {
+    padding: 0.75rem;
+  }
+
+  .section_header_content {
+    gap: 0.4rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .section_content {
+    padding: 0.75rem;
+    gap: 0.7rem;
+  }
+}

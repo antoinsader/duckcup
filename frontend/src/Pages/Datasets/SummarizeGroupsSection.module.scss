@@ -1,0 +1,185 @@
+.section_root {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.filters_grid {
+    display: flex;
+    flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.filter_card {
+  border: 1px solid var(--surface-4);
+  border-radius: 10px;
+  background: var(--surface-3);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  width: 32%;
+  overflow: scroll;
+}
+
+.filter_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.filter_title {
+  color: var(--text-bright);
+  font-size: 0.84rem;
+  font-weight: 650;
+}
+
+.filter_subtitle {
+  color: var(--text-sub);
+  font-size: 0.76rem;
+}
+
+.filter_actions_row {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.clear_btn {
+  font-size: 0.75rem;
+}
+
+.chips_row {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: nowrap;
+  overflow: auto;
+  padding-bottom: 20px;
+}
+
+.chip_btn {
+  border: 1px solid var(--surface-4);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text-main);
+  font-size: 0.76rem;
+  line-height: 1.2;
+  padding: 0.33rem 0.58rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  cursor: pointer;
+}
+
+.chip_btn:hover {
+  border-color: var(--accent);
+}
+
+.chip_btn_active {
+  border-color: var(--accent);
+  color: var(--text-bright);
+  background: var(--accent);
+}
+
+.chip_count {
+  border-radius: 999px;
+  padding: 0.06rem 0.36rem;
+  background: color-mix(in srgb, var(--surface-4) 70%, transparent);
+  font-size: 0.72rem;
+}
+
+.show_more_chip {
+  border: 1px dashed var(--surface-4);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-sub);
+  font-size: 0.74rem;
+  padding: 0.33rem 0.62rem;
+  cursor: pointer;
+}
+
+.show_more_chip:hover {
+  color: var(--text-bright);
+  border-color: var(--accent);
+}
+
+.date_inputs_row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.date_input_label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  color: var(--text-sub);
+  font-size: 0.76rem;
+}
+
+.date_input {
+  border: 1px solid var(--surface-4);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--text-main);
+  font-size: 0.8rem;
+  min-height: 36px;
+  padding: 0 0.5rem;
+}
+
+.selection_card {
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+
+  background: color-mix(in srgb, var(--accent) 47%, var(--surface-1));
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: 1rem;
+
+
+}
+
+.selection_title {
+  margin: 0;
+  color: var(--text-bright);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.selection_subtitle {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 0.8rem;
+}
+
+.selection_stats_row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  color: var(--text-sub);
+  font-size: 0.74rem;
+}
+
+.summary_answer_card_active {
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface-2));
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.datatable_root {
+  margin-top: 0.4rem;
+  max-width: unset;
+}
+
+@media (max-width: 920px) {
+  .date_inputs_row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,61 @@
+.container {
+  padding: 20px;
+}
+
+.pageTitle {
+  color: var(--text-bright);
+  margin-bottom: 16px;
+}
+
+.error {
+  color: var(--error);
+  margin-bottom: 12px;
+}
+
+/* Provider buttons styling - overrides btn mixins for this page */
+.provider_buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 8px 0 0 0;
+}
+
+.provider_buttons .btn {
+  width: auto;
+  justify-content: center;
+  padding: 0.72rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  flex: 0 0 auto;
+  min-width: 140px;
+  max-width: 320px;
+}
+
+.popup_footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+
+/* small responsive tweak */
+@media (max-width: 520px) {
+  .container {
+    padding: 12px;
+    width: 100%;
+  }
+
+  .provider_buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .popup_footer {
+    justify-content: stretch;
+  }
+
+  .provider_buttons .btn {
+    width: 100%;
+    min-width: 0;
+  }
+}

@@ -1,0 +1,93 @@
+.tokens_root {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  background: var(--surface-3);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+
+.controls_options_container{
+  margin-bottom: 1rem;
+  background: var(--surface-3);
+  padding: 0px 21px 18px;
+
+}
+
+
+.controls_row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.input_group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.refresh_btn_wrap {
+  display: flex;
+  align-items: flex-end;
+}
+
+.input_label {
+  color: var(--text-sub);
+  font-size: 0.78rem;
+}
+
+.input_number {
+  min-width: 150px;
+  border: 1px solid var(--surface-4);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--text-main);
+  padding: 0.45rem 0.55rem;
+}
+
+.input_number:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.validation_text {
+  color: var(--error);
+  font-size: 0.78rem;
+}
+
+.info_text {
+  color: var(--text-sub);
+  font-size: 0.82rem;
+}
+
+.chips_root {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.token_chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--surface-4);
+  background: var(--surface-2);
+  color: var(--text-main);
+  padding: 0.32rem 0.62rem;
+  font-size: 0.8rem;
+}
+
+.token_text {
+  color: var(--text-bright);
+  font-weight: 600;
+}
+
+.token_value {
+  color: var(--text-sub);
+}

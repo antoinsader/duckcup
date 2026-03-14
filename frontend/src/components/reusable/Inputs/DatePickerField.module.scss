@@ -1,0 +1,46 @@
+.field_col {
+  min-width: 0;
+}
+
+.field_label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.input_shell {
+  position: relative;
+  width: 100%;
+}
+
+.field_input {
+  width: 100%;
+  border: 1px solid var(--border-input);
+  background: var(--surface-2);
+  color: var(--text-main);
+  border-radius: 8px;
+  height: 38px;
+  padding: 0 0.75rem;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 24%, transparent);
+  }
+}
+
+input[type="date"].field_input {
+  padding-right: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .field_input {
+    height: 36px;
+    font-size: 0.86rem;
+    padding: 0 0.65rem;
+  }
+}

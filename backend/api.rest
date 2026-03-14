@@ -1,0 +1,74 @@
+@baseUrl = http://127.0.0.1:8000
+
+###
+# @name root
+GET {{baseUrl}}/
+
+
+###
+POST {{baseUrl}}/user/login
+Content-Type: application/json
+
+{
+    "username": "ttt",
+    "password": "1234"
+}
+
+
+###
+POST {{baseUrl}}/account/get_user_accounts
+Content-Type: application/json
+
+{
+    "user_id": 1
+}
+
+###
+POST {{baseUrl}}/dataset/get_user_datasets
+Content-Type: application/json
+
+{
+    "user_id": 1
+}
+
+
+###
+POST {{baseUrl}}/dataset/get_ds_content
+Content-Type: application/json
+
+{
+    "dataset_id": 4
+}
+
+
+
+
+
+###
+POST {{baseUrl}}/user/get_all_users
+Content-Type: application/json
+
+{
+    "special_password": "TJ9034J09JF34HCSA43"
+}
+
+
+
+###
+POST {{baseUrl}}/dataset/delete_ds
+Content-Type: application/json
+
+{
+    "dataset_id": 2
+}
+
+###
+GET {{baseUrl}}/user/me
+
+###
+POST {{baseUrl}}/gmail/get_inbox_meta
+Content-Type: application/json
+
+{
+    "account_id": 1
+}

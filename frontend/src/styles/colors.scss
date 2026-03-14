@@ -1,0 +1,142 @@
+$red: #d93025;
+$blue: #1a73e8;
+$light_blue: #5e9beb;
+
+$green: #188038;
+$yellow: #f9ab00;
+$dark_gray: #202124;
+$darker_gray: #191a1d;
+$light-gray: #f1f3f4;
+$white: #ffffff;
+
+$primary: #0d47a1;
+$secondary: #ff6f00;
+$thirdy: $blue;
+
+$bg-tab-active: #1e1e1e;
+$border-color: #333333;
+
+$text_input_border: rgba(189, 191, 192, 0.815);
+:root {
+  /* Text */
+  --text-main: #cccccc;
+  --text-sub: #cccccc91;
+  --text-bright: #ffffff;
+  --text-dark: #333333;
+
+  /* Surfaces */
+  --surface-0: hsl(222, 20%, 7%); 
+  
+  /* Main containers: Slightly lighter to create separation */
+  --surface-1: hsl(222, 18%, 10%); 
+  
+  /* Cards / Panels: The "working" surface */
+  --surface-2: hsl(222, 16%, 13%); 
+  
+  /* Elevated surfaces: For modals or tooltips */
+  --surface-3: hsl(222, 15%, 18%); 
+
+  /* Tertiary Button: Integrated with the UI depth */
+  --btn_thirdy_bg: hsl(222, 15%, 22%);
+  --btn_thirdy_color: hsl(210, 25%, 90%); /* Crisp, slightly blue-tinted white */
+  --btn_thirdy_border: hsl(222, 12%, 28%);
+  
+  /* Hover states: Subtle brightening for interactivity */
+  --btn_thirdy_hover_bg: hsl(222, 15%, 26%);
+  --btn_thirdy_hover_border: hsl(222, 20%, 35%);
+
+  --bg-card: #24262a;
+  --surface-1-gradient: linear-gradient(
+    hsl(210, 14%, 7%) 0%,
+    hsla(210, 100%, 23%, 0.2) 100%
+  );
+  --surface-2-gradient: linear-gradient(180deg, rgba(0, 122, 204, 0.03), transparent 60%);
+  /* Borders */
+  --border-subtle: #333333;
+  --border-active: rgba(0, 97, 194, 0.8);
+
+  --border-input: rgba(189, 191, 192, 0.8);
+
+  /* Accent */
+  --accent: #39f;
+  --accent-soft: rgba(24, 120, 184, 0.2);
+  --accent-hover: rgba(0, 122, 204, 0.85);
+  --accent-disabled: rgba(0, 122, 204, 0.7);
+
+  --control-bg: #0d1720;
+  --control-border: hsla(210, 14%, 22%, 0.3);
+  --control-color: #ffffff;
+  --control-hover-bg: hsla(210, 100%, 23%, 0.1);
+  --control-hover-border: hsla(210, 100%, 30%, 0.4);
+  --control-active-bg: hsla(210, 100%, 30%, 0.2);
+  --control-active-border: hsla(210, 100%, 38%, 0.8);
+  --control-active-shadow:
+    hsla(200, 10%, 4%, 0.2) 0 -3px 1px inset, hsl(210, 14%, 7%) 0 2px 3px 0;
+
+  --primary-main: hsl(210, 100%, 60%);
+  --primary-bg: #0d47a1;
+  --primary-bg-hover: #093474;
+  --primary-color: white;
+  --primary-color-500: hsl(210, 100%, 45%);
+  --primary-color-600: hsl(210, 100%, 42%);
+  --primary-color-700: hsl(210, 100%, 38%);
+  --primary-color-800: hsl(210, 100%, 30%);
+
+  --secondary-bg: #e2a200;
+  --secondary-bg-hover: #c98b00;
+  --secondary-color: #1f1f1f;
+
+  --third-bg: #2f3b52;
+  --third-bg-hover: #3a4762;
+  --third-color: #c7d1e0;
+
+  /* Feedback */
+  --error: #d93025;
+  --success: #188038;
+}
+[data-theme="light"] {
+  --text-main: #222222;
+  --text-bright: #000000;
+  --text-dark: #111111;
+  --text-sub: #00000091;
+
+  --surface-0: hsl(220, 20%, 98%); /* page background */
+  --surface-1: hsl(220, 18%, 96%); /* main containers */
+  --surface-2: hsl(220, 16%, 93%); /* cards / panels */
+  --surface-3: hsl(220, 15%, 90%); /* elevated surfaces */
+  --surface-1-gradient: linear-gradient(
+    hsl(220, 20%, 96%) 0%,
+    hsla(210, 100%, 45%, 0.08) 100%
+  );
+  /* Third button on surface-3 */
+
+  --btn_thirdy_bg: hsl(220, 18%, 96%);
+  --btn_thirdy_color: hsl(220, 25%, 20%);
+  --btn_thirdy_border: hsl(220, 15%, 80%);
+
+  --btn_thirdy_hover_bg: hsl(220, 18%, 92%);
+  --btn_thirdy_hover_border: hsl(220, 15%, 70%);
+
+  --bg-card: #ffffff;
+
+  --border-subtle: #d0d0d0;
+  --border-active: rgba(0, 97, 194, 0.8);
+  --border-input: #cccccc;
+
+  --primary-main: hsl(210, 100%, 60%);
+
+  --accent: #0066cc;
+  --accent-soft: rgba(0, 102, 204, 0.14);
+
+  --surface-1-gradient: linear-gradient(#f3f3f3 0%, #f3f3f3 100%);
+
+  --control-bg: #0d1720;
+  --control-border: hsla(210, 14%, 22%, 0.3);
+  --control-color: #ffffff;
+  --control-hover-bg: hsla(210, 100%, 23%, 0.1);
+  --control-hover-border: hsla(210, 100%, 30%, 0.4);
+  --control-active-bg: hsla(210, 100%, 30%, 0.2);
+  --control-active-border: hsla(210, 100%, 38%, 0.8);
+  --control-active-shadow:
+    hsla(200, 10%, 4%, 0.2) 0 -3px 1px inset, hsl(210, 14%, 7%) 0 2px 3px 0;
+}

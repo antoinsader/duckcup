@@ -1,0 +1,40 @@
+spacy
+numpy
+fastapi
+rich
+uvicorn
+watchfiles
+python-dotenv
+pydantic
+pydantic-settings
+sqlalchemy
+requests
+gensim
+hdbscan
+umap-learn
+jose
+huggingface_hub
+cryptography
+bs4
+langid
+imapclient
+pytest
+sentence_transformers
+keybert
+passlib[bcrypt]
+tiktoken
+ollama
+google-genai
+faiss #or faiss-cpu if CPU
+'python-jose[cryptography]'
+'pydantic[email]'
+
+scikit-learn
+apscheduler
+telethon
+
+# python -m spacy download en_core_web_md
+# ollama pull all-minilm
+# ollama serve
+
+# something for google genai

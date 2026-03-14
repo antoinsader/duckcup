@@ -1,0 +1,17 @@
+@use "../../../styles/colors.scss" as *; 
+
+.error_root {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid $red;
+  border-left: 8px solid $red;
+  margin: 16px 0px;
+}
+
+@media (max-width: 640px) {
+  .error_root {
+    padding: 12px;
+    border-left-width: 5px;
+    margin: 12px 0;
+  }
+}
