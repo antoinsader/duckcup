@@ -96,12 +96,11 @@ If you prefer to run the services independently for development, follow the inst
 This document explains how users can use the application different services.
 
 ## API Documentation:
-The backend API endpoints are documented in:
-backend/endpoints.md
+The backend API endpoints are documented in static .md file:
+[endpoints.md](https://github.com/antoinsader/threadmind/blob/publish/backend/endpoints.md)
 
 This file describes all the available api endpoints.
-
-Or you can explore http://localhost:8000/docs while the api server is running
+Interactive docs are available at `/docs` (Swagger UI) and `/redoc` (ReDoc) when the server is running.
 
 ## Environment Variables
 
