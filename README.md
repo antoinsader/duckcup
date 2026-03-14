@@ -128,3 +128,9 @@ You can refer to [backend/readme.md](https://github.com/antoinsader/threadmind/b
 ### Infrastructure:
 - Docker
 - Docker Compose
+
+
+## License
+
+This project is licensed under the MIT License.
+See the LICENSE file for details.
