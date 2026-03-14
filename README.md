@@ -92,10 +92,7 @@ If you prefer to run the services independently for development, follow the inst
 
 ## User Guide:
 Instructions for using the application are available in:
-
-```
-    frontend/user_guide.md
-```
+[User guide](https://github.com/antoinsader/threadmind/blob/publish/frontend/user_guide.md)
 
 This document explains how users can use the application different services.
 
@@ -113,28 +110,23 @@ The backend requires several environment variables to run.
 An example configuration file is provided:
 backend/.env.example
 
-You can refer to backend/readme.md to see how to setup the variables.
+You can refer to [backend/readme.md](https://github.com/antoinsader/threadmind/blob/publish/backend/README.md) to see how to setup the variables.
 
 ## Technology Stack
 
-Backend:
+### Backend:
 - Language: Python
-- Libraries for api: FastAPI, Uvicorn
-- Libararies for NLP: Spacy, numpy, torch, sentence transformers, scikit-learn, ollama
-- Libraries for connecting to Emails: imapclient
-- Libraries for connecting to telegram: telethon
+- For api: FastAPI, Uvicorn
+- For NLP: Spacy, numpy, torch, sentence transformers, scikit-learn, keybert, ollama, huggingface_hub, faiss
+- for Emails: imapclient, bs4
+- For telegram: telethon
+- For database: SQLLite
+- For encryption:  sqlalchemy, cryptography
 
+### Frontend:
+- React
+- Node.js
 
-SQLite
-
-Frontend:
-
-React
-
-Node.js
-
-Infrastructure:
-
-Docker
-
-Docker Compose
+### Infrastructure:
+- Docker
+- Docker Compose
