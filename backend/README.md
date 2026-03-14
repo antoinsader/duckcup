@@ -5,7 +5,7 @@
 ThreadMind Backend is a FastAPI NLP Data Platform which is a production-ready backend application designed to manage, analyze, and process user data from email and messaging platforms. It enables users to authenticate, connect Gmail and Telegram accounts, fetch and filter messages, save filtered data into datasets, and perform advanced NLP operations such as clustering, keyword extraction, and summarization. The system is built for maintainability, extensibility, and security, providing robust logging and error handling.
 
 ## Front-end 
-There is already front-end ready to be connected for the API inside [<FRONT END REPO>](https://github.com/antoinsader/threadmind/tree/publish/frontend)
+There is already front-end ready to be connected for the API inside [FRONT END REPO](https://github.com/antoinsader/threadmind/tree/publish/frontend)
 
 
 ## Download requirements:

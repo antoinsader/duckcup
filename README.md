@@ -46,7 +46,7 @@ Create the backend environment configuration:
 
 Edit the file if needed and generate the required secrets.
 Detailed instructions are available in:
-backend/README.md
+[text](https://github.com/antoinsader/threadmind/blob/publish/backend/README.md)
 
 
 4. Start the application
