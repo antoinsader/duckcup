@@ -24,6 +24,10 @@ This frontend requires the ThreadMind backend to be running.
 - Global command palette for fast navigation and actions.
 - Tab-based workspace with reorder and tab management.
 - API key management for analysis providers.
+- Designed and implemented a modular, maintainable backend architecture to support complex NLP workflows and large datasets efficiently.
+- Separated concerns across service layers (data ingestion, processing, storage, API endpoints).
+- Built for scalability and easy extension to new data sources or NLP pipelines.
+
 
 ## Try With Public Datasets
 
