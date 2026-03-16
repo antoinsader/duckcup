@@ -9,6 +9,8 @@ services:
     volumes:
       # Persists database, datasets, RSA keys, and auto-generated secrets across restarts
       - ./data:/app/data
+      # Persists log files across restarts
+      - ./logs:/app/logs
     environment:
 
       # ── Required: Google OAuth (for Gmail connection) ──────────────────────
