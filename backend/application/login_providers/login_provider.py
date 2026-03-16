@@ -176,7 +176,6 @@ class EmailProviderRegistry:
             )
         )
         self.register(gmail_provider)
-        self._register_optional_imap_providers()
 
 
     def register(self, provider: EmailProvider) -> None:
