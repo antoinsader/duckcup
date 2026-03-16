@@ -28,6 +28,7 @@ Instructions for using the application are available in:
 ## Quick Start (Recommended: Docker)
 
 The easiest way to run the project is using Docker.
+
 1. Install Docker:
 
 Install Docker and Docker Compose:
@@ -39,27 +40,33 @@ git clone https://github.com/antoinsader/threadmind.git
 cd threadmind
 ```
 
-3. Configure backend environment
+3. Configure Docker Compose
 
-Create the backend environment configuration:
-
+Copy the example file:
 ```
-    cp backend/.env.example backend/.env
+cp docker-compose.example.yml docker-compose.yml
 ```
 
-**Edit the file with your own environment variables.**
-see how in [backend/readme.md#environment-variables](https://github.com/antoinsader/threadmind/tree/publish/backend#environment-variables) 
+Open `docker-compose.yml` and fill in your Google OAuth credentials:
+```
+- GOOGLE_CLIENT_ID=your_google_client_id_here
+- GOOGLE_CLIENT_SECRET=your_google_client_secret_here
+```
+
+See how to obtain these in [backend/README.md#setup-google-for-gmail-connection](https://github.com/antoinsader/threadmind/tree/publish/backend#setup-google-for-gmail-connection)
+
+> All other secrets (`JWT_SECRET_KEY`, `SPECIAL_PASSWORD`, `BACKEND_SECRETS_ENCRYPTION_KEY`) are **generated automatically** on the first run and saved to `./data/.secrets`. You do not need to set them manually.
+> both **./data** and **.docker-compose.yml** are in .gitignore.
 
 4. Start the application
-Run:
 ```
 docker compose up --build
 ```
 
 Docker will:
-- build the backend container
-- build the frontend container
+- build the backend and frontend containers
 - install all dependencies
+- generate secrets automatically on first run
 - start both services
 
 5. Access the application

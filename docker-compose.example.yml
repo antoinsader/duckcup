@@ -1,0 +1,43 @@
+version: "3"
+
+services:
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # Persists database, datasets, RSA keys, and auto-generated secrets across restarts
+      - ./data:/app/data
+    environment:
+
+      # ── Required: Google OAuth (for Gmail connection) ──────────────────────
+      # Follow the setup guide: backend/README.md#setup-google-for-gmail-connection
+      - GOOGLE_CLIENT_ID=your_google_client_id_here
+      - GOOGLE_CLIENT_SECRET=your_google_client_secret_here
+
+      # ── Auto-generated on first run (do not set manually) ─────────────────
+      # JWT_SECRET_KEY, SPECIAL_PASSWORD, BACKEND_SECRETS_ENCRYPTION_KEY
+      # are generated automatically and saved in ./data/.secrets
+
+      # ── Optional: change only if you use a different host/port ────────────
+      - GOOGLE_REDIRECT_URI=http://localhost:8000/auth/google_callback
+      - FRONTEND_URL=http://localhost:3000/
+
+      # ── Infrastructure (safe to leave as-is) ──────────────────────────────
+      - IS_PROD=False
+      - PORT=8000
+      - HOST=0.0.0.0
+      - SSL_PROTECTED=False
+      - TESTING=False
+      - ALLOWED_PROD_USER_DS_NUM=3
+      - DATABASE_URL=sqlite:///./data/email_app_db.db
+      - USER_DATASETS_CONTENT_DIR=./data/users_datasets/
+      - TEMP_KEYS_DB_PATH=./data/temp_keys.db
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
