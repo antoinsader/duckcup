@@ -35,8 +35,8 @@ https://docs.docker.com/get-docker/
 
 2. Clone the repository
 ```
-git clone <repository-url>
-cd <repository-folder>
+git clone https://github.com/antoinsader/threadmind.git
+cd threadmind
 ```
 
 3. Configure backend environment
