@@ -63,7 +63,7 @@ cp backend/.env.example backend/.env
 - JWT_SECRET_KEY: is used to create session cookies, you can create one using:
 
 ```
-   import secrets; print(secrets.token_urlsafe(32))
+python -c "import secrets; print(secrets.token_urlsafe(32))"
 ```
 
 - BACKEND_SECRETS_ENCRYPTION_KEY: the application is using Fernet symmetric encryption from cryptography library, to generate a key, you use:
