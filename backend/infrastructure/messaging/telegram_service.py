@@ -10,11 +10,11 @@ from telethon.sessions import StringSession
 from api.core.config import settings
 from application.exceptions import ERRORS_LAYERS, ApplicationError
 from domain.domain_models import  TelegramEntityResult, TelegramMessageResult
-from domain.services.messaging_service import MessagingService
 
 from infrastructure.email.email_imap_service import MULTIPLE_WHITE_SPACES_PATTERN, MULTIPLE_NEWLINES_PATTERN, NON_ASCI_PATTERN
 
 from infrastructure.cache.cache_store import InMemoryLruCache
+from .messaging_service import MessagingService
 
 
 _chat_messages_cache = InMemoryLruCache(max_size=5, expiration_minutes=10)
