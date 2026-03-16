@@ -11,6 +11,6 @@ RUN python -m spacy download en_core_web_md
 
 COPY . .
 
-RUN chmod +x entrypoint.sh
+RUN sed -i 's/\r//' entrypoint.sh && chmod +x entrypoint.sh
 
 CMD ["sh", "entrypoint.sh"]
