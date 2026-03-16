@@ -18,7 +18,7 @@ There is already front-end ready to be connected for the API inside [FRONT END R
 
 For installation you can follow the guide of [Project README.md](https://github.com/antoinsader/threadmind/blob/publish/README.md)
 
-** You have to setup the correct environment variables.**
+**You have to setup the correct environment variables.**
 
 
 ---
@@ -151,16 +151,6 @@ All embedders implement the `Embedder` base class (`infrastructure/embedding/_em
 `KeyBertKeywordExtractor` (`infrastructure/keyword_extraction/keybert.py`) uses [KeyBERT](https://github.com/MaartenGr/KeyBERT) for semantic keyword extraction.
 
 The model is loaded as a singleton to avoid repeated initialization.
-
-**Parameters:**
-
-| Parameter | Value | Description |
-|---|---|---|
-| `top_n` | `5` | Number of keywords/keyphrases to return |
-| `keyphrase_ngram_range` | `(1, 3)` | Min/max words in extracted phrases |
-| `use_mmr` | `True` | Maximal Marginal Relevance for diversity |
-| `diversity` | `0.7` | MMR diversity factor (0 = no diversity, 1 = maximum) |
-| `stop_words` | `"english"` | Language stop-word list |
 
 Additional post-processing via `remove_subphrases()` filters out keyphrases that are sub-strings of longer extracted phrases.
 
