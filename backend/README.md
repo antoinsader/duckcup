@@ -18,7 +18,9 @@ There is already front-end ready to be connected for the API inside [FRONT END R
 
 For installation you can follow the guide of [Project README.md](https://github.com/antoinsader/threadmind/blob/publish/README.md)
 
-You have to setup the correct environment variables.
+** You have to setup the correct environment variables.**
+
+
 ---
 
 ## Environment variables
