@@ -27,6 +27,7 @@ Base = declarative_base()
 
 
 def setup_db():
+    import domain.db_models  # noqa: F401 — ensures all models are registered with Base
     try:
         engine = create_db_engine(settings.database_url)
         Base.metadata.create_all(bind=engine)
