@@ -3,7 +3,7 @@ from fastapi import APIRouter
 
 from application.get_meta.huggingface import get_hf_models_data
 from application.get_meta.pollinations import get_pollinations_models_data
-from application.login_providers.provider_catalog import LoginProviderFront, ProvidersCatalog
+from application.login_providers.login_provider import LoginProviderFront, ProvidersCatalog
 
 from infrastructure.embedding._embedder import get_embedders_types
 

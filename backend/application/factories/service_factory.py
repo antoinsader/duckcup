@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 
 from api.core.config import settings
 
-from application.login_providers.login_providers import EmailsProviders
+from application.login_providers.login_provider import EmailsProviders
 from application.repositories.accountsRepository import AccountsRepositoryControllerDb
 
 from application.exceptions import ERRORS_LAYERS, ApplicationError

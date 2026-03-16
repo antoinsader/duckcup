@@ -6,7 +6,7 @@ from api.core.dependencies import    get_db, get_current_user
 from api.core.config import settings
 
 from application.exceptions import ERRORS_LAYERS, ApplicationError
-from application.login_providers.provider_catalog import ProvidersCatalog
+from application.login_providers.login_provider import ProvidersCatalog
 from application.use_cases.accounts import delete_account, get_user_accounts
 
 from domain.db_models import User

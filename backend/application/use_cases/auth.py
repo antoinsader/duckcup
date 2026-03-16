@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from api.core.security import create_access_token
 from application.exceptions import  ERRORS_LAYERS, ApplicationError
 from api.core.config import settings
-from application.login_providers.login_providers import EmailsProviders
+from application.login_providers.login_provider import EmailsProviders
 from application.login_providers.oauth_state_manager import validate_oauth_state
 from application.repositories.accountsRepository import AccountsRepositoryControllerDb
 from application.repositories.userRepository import UserAuthController

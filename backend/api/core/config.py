@@ -39,6 +39,7 @@ class Settings(BaseSettings):
     # ===== Google OAuth =====
     google_client_id: str = Field(alias="GOOGLE_CLIENT_ID")
     google_client_secret: SecretStr = Field(alias="GOOGLE_CLIENT_SECRET")
+    google_redirect_uri: str = Field(alias="GOOGLE_REDIRECT_URI", default="http://localhost:8000/auth/google_callback")
 
     # ===== URLs =====
     frontend_url: str = Field(alias="FRONTEND_URL")
