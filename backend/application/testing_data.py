@@ -342,7 +342,7 @@ def get_testing_accounts():
 def get_testing_inbox_meta(account_id: int):
     return inbox_metas_test.get(account_id)
 
-def get_inbox_criteria(account_id, criteria:InboxCriteria =None):
+def get_inbox_criteria_test(account_id, criteria:InboxCriteria =None):
 
     filtered = inbox.get(account_id, [])
     if criteria is None:

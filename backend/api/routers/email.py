@@ -86,8 +86,8 @@ def get_inbox_criteria_route(payload: GmailInboxCriteriaRequest, user: User = De
         num_rows: int - Current page size.
     """
     if settings.testing:
-        from application.testing_data import get_inbox_criteria
-        return get_inbox_criteria(payload.account_id, payload.criteria)
+        from application.testing_data import get_inbox_criteria_test
+        return get_inbox_criteria_test(payload.account_id, payload.criteria)
 
     account_id = payload.account_id
     criteria = payload.criteria

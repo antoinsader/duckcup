@@ -58,6 +58,7 @@ cp backend/.env.example backend/.env
 - In "Authorized JavaScript origins", you have to add your frontend url which is by default **http://localhost:3000**
 - In "Authorized redirect URIs", you need to specify the redirect uri that your backend is using, which is by default **http://localhost:8000/auth/google_callback**.
 - After you press on create, you will have your **Client ID** and **Client Secret**, which you need to copy them in your backend .env with variable **GOOGLE_CLIENT_ID** and **GOOGLE_CLIENT_SECRET**.
+- You need also to go to the ```Audience``` and add your email as a ```test users```.
 
 ### Create JWT_SECRET_KEY, BACKEND_SECRETS_ENCRYPTION_KEY, SPECIAL_PASSWORD:
 - **JWT_SECRET_KEY**: is used to create session cookies, you can create one using:
