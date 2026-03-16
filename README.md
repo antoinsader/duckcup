@@ -22,8 +22,8 @@ The project can be run in two ways:
 - Save selected emails/messages as your datasets
 - Perform NLP services on your datasets like clustering, summarization,...
 
-Instructions for using the application are available in:
-[User guide](https://github.com/antoinsader/threadmind/blob/publish/frontend/user_guide.md)
+Instructions for using the application are available in wiki:
+[Wiki User guide](https://github.com/antoinsader/threadmind/wiki/user_guide)
 
 ## Quick Start (Recommended: Docker)
 

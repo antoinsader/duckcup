@@ -9,7 +9,6 @@ import EmailsPage from "../../Pages/Emails/Emails";
 import NoTabOpen from "../../components/layout_shell/NoTabOpen";
 import Accounts from "../../Pages/Accounts/Accounts";
 import Datasets from "../../Pages/Datasets/Datasets";
-import UserGuidePage from "../../Pages/UserGuide/UserGuide";
 
 import Profile from "../../Pages/Profile/Profile";
 import TelegramPage from "../../Pages/Telegram/Telegram";
@@ -67,13 +66,6 @@ export const routes = [
     element: <TelegramPage />,
     icon: <FaTelegram />,
     requires_auth: true,
-  },
-  {
-    id: 8,
-    href: "/user-guide",
-    label: "User Guide",
-    element: <UserGuidePage />,
-    icon: <FiBook />,
   },
   
   {

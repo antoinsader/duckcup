@@ -15,10 +15,7 @@ This frontend requires the ThreadMind backend to be running.
 
 ## User Guide
 
-- In-app route: `/user-guide`
-- Markdown guide in repository: [`user_guide.md`](./user_guide.md)
-
-Note: `user_guide.md` is copied into `public/user_guide.md` automatically before `start` and `build` through project scripts.
+[Wiki user guide](https://github.com/antoinsader/threadmind/wiki/user_guide)
 
 ---
 
