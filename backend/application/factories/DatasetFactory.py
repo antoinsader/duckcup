@@ -133,7 +133,7 @@ def get_current_dataset( db:  Session, dataset_id: int, user_id: int, load_conte
     else: # email dataset 
         if content is not None and not load_not_only_front:
             try:
-                content = [EmailFront._from_Email(email) for email in content]
+                content = [EmailFront._from_dict(email) for email in content]
             except Exception as e:
                 raise ApplicationError(
                     f"Error parsing email dataset content for dataset_id: {dataset_id}",

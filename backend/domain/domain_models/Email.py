@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 
+from backend.application.exceptions import ERRORS_LAYERS, ApplicationError
+
 
 @dataclass
 class Email:
@@ -71,6 +73,28 @@ class EmailFront:
             contains_attachement=email.contains_attachement,
             flags=email.flags,
             language=email.language,
+        )
+    @staticmethod
+    def _from_dict(data: dict) -> "EmailFront":
+        if data is None:
+            return None
+        if data["email_id"] is None:
+            raise ApplicationError(
+                "Error parsing email dataset content.",
+                layer=ERRORS_LAYERS.DATASET_FILES,
+                only_back_message=f"Email id is missing in dataset content. data: {data}",
+                priority=1
+            )
+        return EmailFront(
+            email_id=str(data.get("email_id", "")),
+            subject=data.get("subject", ""),
+            sender_signature=data.get("sender_signature", ""),
+            sender_email=data.get("sender_email", ""),
+            date=data.get("date", ""),
+            content_clean=data.get("content_clean", ""),
+            contains_attachement=data.get("contains_attachement", False),
+            flags=data.get("flags", []),
+            language=data.get("language", "en"),
         )
 
 
