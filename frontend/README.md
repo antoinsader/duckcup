@@ -2,12 +2,25 @@
 
 ThreadMind Frontend is a React application for connecting emails and telegram accounts, browsing content, creating datasets, and running NLP workflows on those datasets.
 
+---
+
 ## Backend Requirement
 
 This frontend requires the ThreadMind backend to be running.
 
-- Backend repository: `BACKEND_REPO_LINK`
+- [Backend repository](https://github.com/antoinsader/threadmind/tree/publish/backend)
 - Start the backend first, then run this frontend.
+
+---
+
+## User Guide
+
+- In-app route: `/user-guide`
+- Markdown guide in repository: [`user_guide.md`](./user_guide.md)
+
+Note: `user_guide.md` is copied into `public/user_guide.md` automatically before `start` and `build` through project scripts.
+
+---
 
 ## Main Features
 
@@ -28,6 +41,7 @@ This frontend requires the ThreadMind backend to be running.
 - Separated concerns across service layers (data ingestion, processing, storage, API endpoints).
 - Built for scalability and easy extension to new data sources or NLP pipelines.
 
+---
 
 ## Try With Public Datasets
 
@@ -39,6 +53,8 @@ You can try the application even before connecting your own accounts by using th
 	- Clustering messages.
 	- Extracting keywords.
 	- Summarizing content.
+
+---
 
 ## Frontend Architecture (Overview)
 
@@ -54,12 +70,7 @@ The project follows a modular Create React App structure:
 
 This separation keeps domain logic, UI composition, and shared infrastructure easy to maintain as features grow.
 
-## User Guide
-
-- In-app route: `/user-guide`
-- Markdown guide in repository: [`user_guide.md`](./user_guide.md)
-
-Note: `user_guide.md` is copied into `public/user_guide.md` automatically before `start` and `build` through project scripts.
+---
 
 ## Run Locally
 
@@ -76,8 +87,3 @@ npm run start
 ```
 
 By default, the app runs at `http://localhost:3000`.
-
-## Other Scripts
-
-- `npm test`: Start the test runner in watch mode.
-- `npm run build`: Create a production build in `build/`.

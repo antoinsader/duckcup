@@ -47,10 +47,8 @@ Create the backend environment configuration:
     cp backend/.env.example backend/.env
 ```
 
-Edit the file if needed and generate the required secrets.
-Detailed instructions are available in:
-[backend/README.md](https://github.com/antoinsader/threadmind/blob/publish/backend/README.md)
-
+**Edit the file with your own environment variables.**
+see how in [backend/readme.md#environment-variables](https://github.com/antoinsader/threadmind/tree/publish/backend#environment-variables) 
 
 4. Start the application
 Run:
@@ -86,6 +84,10 @@ If you prefer to run the services independently for development, follow the inst
 - Create ```.env``` file from ```.env.example```
 - Run the server using ```python main.py```
 
+You have to set your own environment variables to make the back-end run, see how in [backend/readme.md#environment-variables](https://github.com/antoinsader/threadmind/tree/publish/backend#environment-variables) 
+
+
+
 ### Frontend setup
 
 - Make sure node is installed
@@ -102,13 +104,6 @@ The backend API endpoints are documented in static .md file:
 This file describes all the available api endpoints.
 Interactive docs are available at `/docs` (Swagger UI) and `/redoc` (ReDoc) when the server is running.
 
-## Environment Variables
-
-The backend requires several environment variables to run.
-An example configuration file is provided:
-backend/.env.example
-
-You can refer to [backend/readme.md](https://github.com/antoinsader/threadmind/blob/publish/backend/README.md) to see how to setup the variables.
 
 ## Technology Stack
 
