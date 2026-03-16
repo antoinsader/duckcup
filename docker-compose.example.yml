@@ -29,7 +29,7 @@ services:
       # ── Infrastructure (safe to leave as-is) ──────────────────────────────
       - IS_PROD=False
       - PORT=8000
-      - HOST=0.0.0.0
+      - HOST=localhost
       - SSL_PROTECTED=False
       - TESTING=False
       - ALLOWED_PROD_USER_DS_NUM=3
