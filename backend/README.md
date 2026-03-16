@@ -14,6 +14,23 @@ There is already front-end ready to be connected for the API inside [FRONT END R
 
 ---
 
+## Architecture
+
+The project follows a clean layered architecture:
+
+![routing diagram](docs/api_routing_diagram.png)
+![Use Cases diagram](docs/api_usecases_diagram.png)
+![INFRASTRUCTURE diagram](docs/api_infra_diagram.png)
+
+
+- **API Layer** — FastAPI endpoints, routing, authentication, and documentation
+- **Application Layer** — Business logic, use cases, factories, and login providers
+- **Domain Layer** — Core business entities, enums, and service interfaces
+- **Infrastructure Layer** — Concrete implementations for NLP, caching, encryption, and external integrations
+
+API endpoints invoke application use cases, which operate on domain models and leverage infrastructure services.
+
+---
 ## Installation
 
 For installation you can follow the guide of [Project README.md](https://github.com/antoinsader/threadmind/blob/publish/README.md)
@@ -84,18 +101,6 @@ Or you can use Interactive docs available at `<BACKEND_URL>/docs` (Swagger UI) a
 ---
 
 
-## Architecture
-
-The project follows a clean layered architecture:
-
-- **API Layer** — FastAPI endpoints, routing, authentication, and documentation
-- **Application Layer** — Business logic, use cases, factories, and login providers
-- **Domain Layer** — Core business entities, enums, and service interfaces
-- **Infrastructure Layer** — Concrete implementations for NLP, caching, encryption, and external integrations
-
-API endpoints invoke application use cases, which operate on domain models and leverage infrastructure services.
-
----
 
 ## Infrastructure
 
