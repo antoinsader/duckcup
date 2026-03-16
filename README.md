@@ -127,9 +127,17 @@ Interactive docs are available at `/docs` (Swagger UI) and `/redoc` (ReDoc) when
 - React
 - Node.js
 
-### Infrastructure:
-- Docker
-- Docker Compose
+
+## Future plans:
+
+- Make access to gmail easier than creating a developer app..., Maybe using Gmail APP password
+- Refactor front-end to have better ui/ux
+- Add other AI services 
+- Make agents mode so user can choose what to do with their messages/emails and with doing periodically option
+- Make telegram bot to connect to the app
+- Make a cli interface for the application
+- Creating a wiki
+
 
 
 ## License
