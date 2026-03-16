@@ -1,33 +1,35 @@
-# ThreadMind Backend
+# ThreadMind — Backend
 
 ## Introduction
 
-ThreadMind Backend is a FastAPI NLP Data Platform which is a production-ready backend application designed to manage, analyze, and process user data from email and messaging platforms. It enables users to authenticate, connect Gmail and Telegram accounts, fetch and filter messages, save filtered data into datasets, and perform advanced NLP operations such as clustering, keyword extraction, and summarization. The system is built for maintainability, extensibility, and security, providing robust logging and error handling.
+ThreadMind is a production-ready backend application designed to manage, analyze, and process user data from email and messaging platforms. It enables users to authenticate, connect Gmail and Telegram accounts, fetch and filter messages, save filtered data into datasets, and perform advanced NLP operations such as clustering, keyword extraction, summarization, and NER. 
+The system is built for maintainability, extensibility, and security, providing robust logging and error handling.
+
+---
+
 
 ## Front-end 
+
 There is already front-end ready to be connected for the API inside [FRONT END REPO](https://github.com/antoinsader/threadmind/tree/publish/frontend)
 
+---
 
-## Download requirements:
-Use requirements.txt to download dependencies. 
-PLUS you need to download spacy model:
-```
-python -m spacy download en_core_web_md
-```
-PLUS if you want to use OLLAMA local embedding, you have to pull ollama model using: 
-```
-ollama pull all-minilm
-ollama serve
-```
+## Installation
 
+For installation you can follow the guide of [Project README.md](https://github.com/antoinsader/threadmind/blob/publish/README.md)
 
-## .env Configuration
+You have to setup the correct environment variables.
+---
+
+## Environment variables
+
+The backend requires several environment variables to run. An example configuration file is provided: backend/.env.example
 
 Create the environment file:
 ```
 cp backend/.env.example backend/.env
 ```
-You have to modify some environment variables to setup your environment.
+
 
 ### Setup google for gmail connection:
 - Go to https://console.cloud.google.com and create a project and name it whatever you want
@@ -58,9 +60,18 @@ python -c "import secrets; print(secrets.token_urlsafe(16))"
 ```
 
 
+---
+
+## API documentations:
+
+You can see static [api endpoints](https://github.com/antoinsader/threadmind/blob/publish/backend/endpoints.md) containing the list of available endpoints. 
+Or you can use Interactive docs available at `<BACKEND_URL>/docs` (Swagger UI) and `<BACKEND_URL>/redoc` (ReDoc) when the server is running.
+
+---
+
 ## Main Features
 
-- User authentication and account management
+- User authentication and account management. Currently we setup google and telegram authentication.
 - Gmail and Telegram integration for fetching emails and messages
 - Filtering and saving messages into datasets
 - Advanced NLP operations: clustering, keyword extraction, summarization, NER, tokenization
@@ -68,129 +79,442 @@ python -c "import secrets; print(secrets.token_urlsafe(16))"
 - Comprehensive logging and error handling
 - Scheduled background jobs for automation
 
+---
+
+
 ## Architecture
 
-The project follows a layered architecture:
+The project follows a clean layered architecture:
 
-### API Layer
+- **API Layer** — FastAPI endpoints, routing, authentication, and documentation
+- **Application Layer** — Business logic, use cases, factories, and login providers
+- **Domain Layer** — Core business entities, enums, and service interfaces
+- **Infrastructure Layer** — Concrete implementations for NLP, caching, encryption, and external integrations
 
-- Exposes application functionality via FastAPI endpoints
-- Handles HTTP requests, authentication, and documentation
-- Modular routers for accounts, datasets, email, Telegram, NLP, and more
+API endpoints invoke application use cases, which operate on domain models and leverage infrastructure services.
 
-### Application Layer
+---
 
-- Implements business logic and orchestrates domain and infrastructure services
-- Contains use cases for clustering, dataset management, authentication, and integration
+## Infrastructure
 
-### Domain Layer
+### NLP
 
-- Encapsulates core business entities, enums, and service interfaces
-- Models essential concepts such as User, Email, Dataset, Account
+#### Clustering
 
-### Infrastructure Layer
+Four clustering strategies are available, all implementing a common `Clusterer` interface:
 
-- Provides concrete implementations for technical concerns and external integrations
-- Includes NLP modules, caching, encryption, and platform connectors
+- **KMeans** (`infrastructure/clustering/kmeans.py`) — Standard KMeans clustering (k_clusters is required).
+- **HDBSCAN** (`infrastructure/clustering/hdbscan.py`) — Density-based hierarchical clustering; handles noise and variable cluster sizes (k_clusters is required).
+- **LDA** (`infrastructure/clustering/lda.py`) — Latent Dirichlet Allocation for topic-based clustering (k_clusters is required). 
+- **AdvancedClusterer** (`infrastructure/clustering/advanced_clusterer.py`) — A two-stage pipeline that combines UMAP dimensionality reduction with HDBSCAN clustering (k_clusters is **NOT** required).
+  **AdvancedClusterer Pipeline:** raw embeddings → optional normalization → UMAP reduction → HDBSCAN clustering → cluster labels.
 
-**Layer Interaction:**  
-API endpoints invoke application use cases, which operate on domain models and leverage infrastructure services for external integrations and technical operations.
+---
 
+#### Dimensionality Reduction
 
+`UmapReducer` (`infrastructure/dim_reduction/umap.py`) reduces high-dimensional embeddings before clustering.
+Usage: `reducer.reduce(embeddings: np.ndarray) -> np.ndarray`
 
-## API Endpoints
+---
 
-- API endpoints are documented in `endpoints.md`, generated from FastAPI's auto documentation.
-- Interactive docs are available at `/docs` (Swagger UI) and `/redoc` (ReDoc) when the server is running.
+#### TF-IDF Service
 
-## Authentication
+`TfIdf_Service` (`infrastructure/tfidf_service.py`) performs TF-IDF vectorization on tokenized documents.
 
-- **OAuth2 for Gmail:**  
-   Secure connection to Gmail accounts using OAuth2, allowing users to fetch and analyze emails.
-- **Telegram Integration:**  
-   Connects to Telegram accounts to fetch entities and messages for analysis.
+Key methods:
+- `fit_transform(tokenized_docs)` — Builds the TF-IDF matrix
+- `get_tfidf_list_tokens()` — Extracts top-N important single tokens
+- `get_tfidf_list_grams()` — Extracts top-N important n-grams
+- `generate_title_tfidf()` — Produces a cluster title from the highest-scoring terms
 
-## Dataset Workflow
+---
 
-- Users can fetch emails and Telegram messages.
-- Filter messages based on criteria.
-- Save filtered data into datasets.
-- Run NLP operations (clustering, keyword extraction, summarization, NER, tokenization) on datasets.
+#### Embedding
 
-## NLP Infrastructure
+All embedders implement the `Embedder` base class (`infrastructure/embedding/_embedder.py`) exposing `embed(texts: list[str]) -> np.ndarray`.
 
-- **Clustering:**  
-   Multiple algorithms including KMeans, HDBSCAN, and AdvancedClusterer (combines UMAP for dimensionality reduction with HDBSCAN for clustering).
-- **Dimensionality Reduction:**  
-   UMAP and related tools for reducing data dimensions.
-- **TF-IDF Service:**  
-   Feature extraction and keyword analysis.
-- **Embeddings:**  
-   Supports Transformers, Gemini, Ollama (models must be downloaded locally), and more. Configurable for different embedding types.
-- **Keyword Extraction:**  
-   Uses KeyBERT with tunable parameters for extraction quality.
-- **NER:**  
-   spaCy-based entity extraction and normalization.
-- **Tokenizer:**  
-   spaCy for text tokenization.
-- **Prompter:**  
-   Uses HuggingFace or Pollination for prompt-based LLM tasks. Prompts are managed in `application/prompts`.
+**Available embedders:**
 
-## External Platforms
+| Embedder | Source | Notes |
+|---|---|---|
+| `SentenceTransformersEmbedder` | `infrastructure/embedding/transformers.py` | Uses a local HuggingFace sentence-transformers model. Default model configurable via `settings.default_st_embedding_model`. |
+| `GeminiEmbedder` | `infrastructure/embedding/gemini.py` | Uses Google Gemini embedding API. Requires a Gemini API key. |
+| `OllamaEmbedder` | `infrastructure/embedding/ollama.py` | Uses a locally running Ollama instance. Default model via `settings.default_ollama_embedding_model`. **Ollama must be installed and running locally, and the target model must be downloaded first** (`ollama pull <model>`). |
 
-- **Gmail (EmailImapService):**  
-   Connects to email accounts, fetches emails by criteria.
-- **Telegram:**  
-   Fetches Telegram entities and messages.
-- **HuggingFace / Pollination:**  
-   Used for prompt engineering and NLP tasks.
-- **Gemini / Ollama:**  
-   Embedding and NLP models. Ollama models must be downloaded locally.
+---
+
+#### Keyword Extraction
+
+`KeyBertKeywordExtractor` (`infrastructure/keyword_extraction/keybert.py`) uses [KeyBERT](https://github.com/MaartenGr/KeyBERT) for semantic keyword extraction.
+
+The model is loaded as a singleton to avoid repeated initialization.
+
+**Parameters:**
+
+| Parameter | Value | Description |
+|---|---|---|
+| `top_n` | `5` | Number of keywords/keyphrases to return |
+| `keyphrase_ngram_range` | `(1, 3)` | Min/max words in extracted phrases |
+| `use_mmr` | `True` | Maximal Marginal Relevance for diversity |
+| `diversity` | `0.7` | MMR diversity factor (0 = no diversity, 1 = maximum) |
+| `stop_words` | `"english"` | Language stop-word list |
+
+Additional post-processing via `remove_subphrases()` filters out keyphrases that are sub-strings of longer extracted phrases.
+
+---
+
+#### NER (Named Entity Recognition)
+
+`extract_entities_from_messages()` (`infrastructure/ner/entity_extractor.py`) uses the **spaCy `en_core_web_md`** model to extract and normalize named entities from text.
+
+**Supported entity types:** PERSON, ORG, GPE, EVENT, FAC, LANGUAGE, LAW, LOC, NORP, PRODUCT, WORK_OF_ART, DATE, TIME, CARDINAL, MONEY, ORDINAL, PERCENT, QUANTITY
+
+By default, numeric/temporal types (CARDINAL, ORDINAL, PERCENT, QUANTITY, TIME, DATE) are excluded from results unless explicitly requested.
+
+**Normalization** (`infrastructure/ner/normalization.py`) standardizes entity text before storing (e.g., case normalization, whitespace cleanup).
+
+Results are structured as: `{ entity_label: { entity_text: [message_ids] } }` and cached in the LRU cache to avoid re-processing the same content.
+
+The spaCy model is loaded lazily and cached as a singleton via `get_nlp()` (`infrastructure/ner/spacy_model.py`).
+
+---
+
+#### Tokenizer
+
+`SpacyTokenizer` (`infrastructure/tokenizer/Spacy.py`) uses **spaCy** to tokenize and preprocess text before feeding it into TF-IDF or clustering pipelines.
+
+**Config (`SpacyTokenizerConfig`):**
+
+| Parameter | Default | Description |
+|---|---|---|
+| `batch_size` | `500` | Documents processed per batch |
+| `get_lemmas` | `True` | Return lemmatized forms |
+| `only_alpha` | `True` | Discard non-alphabetic tokens |
+| `remove_stop_words` | `True` | Strip stop words |
+| `min_token_length` | `2` | Minimum token length |
+| `spacy_model` | `"en_core_web_md"` | spaCy model to use |
+
+---
+
+#### Prompter
+
+All prompters implement the `Prompter` base class (`infrastructure/prompter/prompter.py`) exposing `answer_prompt(prompt: str) -> str`.
+
+**Available prompters:**
+
+| Prompter | Source | Config | Notes |
+|---|---|---|---|
+| `HuggingFacePrompter` | `infrastructure/prompter/huggingface.py` | `HuggingFacePrompterConfig` | Uses `huggingface_hub.InferenceClient`. Default model: `Qwen/Qwen2-1.5B-Instruct`. Requires a HuggingFace API token. |
+| `PollinationsPrompter` | `infrastructure/prompter/pollinations.py` | `PollinationsPrompterConfig` | Calls the Pollinations chat completions API. Default model: `polly`. Requires a Pollinations API key. |
+| `GeminiPrompter` | `infrastructure/prompter/gemini.py` | — | Uses the Google Gemini API. |
+
+**Prompt Registry** (`application/prompts/registry.py`) centralizes all prompt templates. Prompts are registered by key (enum) and instantiated lazily as singletons.
+
+**Available prompt keys:**
+
+| Key | Template location | Description |
+|---|---|---|
+| `EMAIL_SUMMARY` | `application/prompts/email_summary.py` | Summarize a group of emails |
+| `MESSAGES_GROUP_SUMMARY` | `application/prompts/messages_group_summary.py` | Summarize a Telegram message group |
+| `CLUSTER_TITLE` | `application/prompts/cluster_title.py` | Generate a title for a Telegram message cluster |
+| `EMAILS_CLUSTER_TITLE` | `application/prompts/cluster_title.py` | Generate a title for an email cluster |
+
+Usage: `registry.render(PromptRegistryKey.EMAIL_SUMMARY, **kwargs)` returns the rendered prompt string ready to pass to a prompter.
+
+---
+
+### Caching
+
+#### LRU Cache (`infrastructure/cache/cache_store.py`)
+
+`InMemoryLruCache` is a thread-safe in-memory cache built on `OrderedDict` with LRU eviction.
+
+**Parameters:**
+
+| Parameter | Description |
+|---|---|
+| `max_size` | Maximum number of entries (default: 256). Oldest entries are evicted when exceeded. |
+| `expiration_minutes` | Optional TTL per entry. Expired entries are skipped and removed on access. |
+
+Values are deep-copied on store and retrieve to prevent mutation of cached objects.
+
+**Methods:** `get(cache_key)`, `set(cache_key, value)`
+
+#### Key Builders (`infrastructure/cache/key_builders.py`)
+
+Deterministic cache key generators using SHA-256 hashing:
+
+| Function | Inputs | Used for |
+|---|---|---|
+| `build_cluster_title_cache_key` | `dataset_id`, sorted `doc_ids` | Caching LLM-generated cluster titles |
+| `build_cluster_documents_cache_key` | `dataset_id`, `strategy_hash`, `doc_ids` | Caching clustering results per strategy |
+| `build_summarize_documents_cache_key` | `dataset_id`, `doc_ids`, `provider`, `model` | Caching summaries per provider+model |
+
+---
+
+### Encryption
+
+#### Fernet (`infrastructure/encryption/fernet.py`)
+
+`FernetEncrypter` uses symmetric Fernet encryption (AES-128-CBC with HMAC) to protect sensitive data at rest.
+
+- **Key:** loaded from `settings.encryption_key`
+- **`encrypt(value)`** — Takes a `str` or `bytes` and returns an encrypted string
+- **`decrypt(encrypted_value)`** — Returns the original plaintext
+
+Used to encrypt: database refresh tokens, stored API keys (`UserKeys`), and dataset files on disk.
+
+#### RSA (`infrastructure/encryption/rsa.py`)
+
+2048-bit RSA with OAEP/SHA-256 padding for securing data in transit between frontend and backend.
+
+**Flow:**
+1. On startup (every 4 days), `generate_key_pairs()` creates a new `private_key.pem` and `public_key.pem` in `settings.rsa_keys_dir`.
+2. `get_rsa_public_key()` exposes the public key to the frontend.
+3. The frontend encrypts sensitive payloads (e.g., passwords, secrets) with the public key before sending.
+4. `decrypt_rsa_value(encrypted)` decrypts the Base64-encoded ciphertext on the server using the private key.
+
+---
+
+### Platforms
+
+#### EmailImapService (`infrastructure/email/email_imap_service.py`)
+
+`EmailImapService` connects to Gmail via **IMAP over SSL** (`imap.gmail.com:993`) using an OAuth2 access token.
+
+**Connection:**
+```python
+service = EmailImapService(email="user@gmail.com", access_token="...", emails_host="imap.gmail.com")
+```
+Authentication uses `IMAPClient.oauth2_login()` — no password required, only a valid OAuth2 access token.
+
+**Fetching emails:**
+
+| Method | Description |
+|---|---|
+| `get_all_inbox_ids()` | Returns all email UIDs in the inbox |
+| `get_criteria_ids(criteria, page_num, num_rows, all)` | Search and paginate with filters |
+| `get_emails_from_ids(uids)` | Full email parse: subject, sender, date, body (batched at 100) |
+| `get_meta_from_ids(uids)` | Lightweight metadata only (sender, subject, date) |
+| `get_html_content_from_id(uid)` | Raw HTML of a single email |
+| `get_senders_from_uids(uids)` | Sender info only |
+| `get_dates_from_uids(uids)` | Dates only |
+
+**`InboxCriteria` filter fields:**
+
+| Field | Type | Description |
+|---|---|---|
+| `sender_email` | `str` | Filter by sender address |
+| `subject` | `str` | Filter by subject keyword |
+| `date_from` | `date` | Start of date range |
+| `date_to` | `date` | End of date range |
+| `only_unseen` | `bool` | Only unread emails |
+| `sort_by` | `enum` | `newest_first`, `oldest_first`, `sender_name` |
+
+Email body text is aggressively cleaned by `EmailParsingHelper.clean_mail_text()`: HTML is stripped via BeautifulSoup, footers and signatures are removed, URLs and emojis are deleted, and whitespace is normalized.
+
+---
+
+#### Telegram (`infrastructure/messaging/telegram_service.py`)
+
+`TelegramMessagingService` uses the **[Telethon](https://github.com/LonamiWebs/Telethon)** async client with a `StringSession` for persistent authentication.
+
+**Connection:**
+```python
+service = TelegramMessagingService(api_id=..., api_hash="...", session_string="...")
+await service.connect()
+```
+
+**Fetching entities (chats/channels/users):**
+```python
+entities = await service.get_entities(limit=100)
+# Returns list of TelegramEntityResult:
+# { id, name, is_user, is_group, is_channel }
+```
+
+**Fetching messages:**
+```python
+messages = await service.get_messages(chat_id=..., limit=100)
+# Returns list of TelegramMessageResult:
+# { message_id, chat_id, date, text, clean_text, sender_id,
+#   sender_username, language, views, forwards, media }
+```
+
+`TelegramServiceHelper` cleans message text: extracts emojis and hashtags, removes non-ASCII characters, normalizes whitespace, and filters out non-English messages via language detection.
+
+Batch fetching from multiple chats is available via `get_dataset_messages(entity_message_tuples)`.
+
+---
+
+## Database Models
+
+### Account (`domain/db_models/Accont.py`)
+
+Represents a connected external account (Gmail or Telegram) for a user.
+
+| Column | Type | Description |
+|---|---|---|
+| `account_id` | PK | |
+| `user_id` | FK → User | Owner |
+| `provider_type` | enum | `EMAIL` or `MESSAGING` |
+| `email_provider_id` | enum | `GMAIL`, `GENERIC_IMAP`, or `TELEGRAM` |
+| `email` | str | Email address or Telegram identifier |
+| `refresh_token` | str (encrypted) | OAuth2 or session token, encrypted with Fernet |
+
+Unique constraint on `(user_id, email)`.
+
+### User (`domain/db_models/User.py`)
+
+| Column | Type | Description |
+|---|---|---|
+| `user_id` | PK | |
+| `username` | str (unique, indexed) | Login username |
+| `password` | str | Hashed password |
+
+### Dataset (`domain/db_models/Dataset.py`)
+
+Represents a saved collection of emails or Telegram messages.
+
+| Column | Type | Description |
+|---|---|---|
+| `dataset_id` | PK | |
+| `user_id` | FK → User | Owner |
+| `ds_name` | str (unique) | Dataset name |
+| `dataset_type` | enum | `EMAIL_GMAIL` or `MESSAGING_TELEGRAM` |
+| `count_emails` | int | Number of messages/emails stored |
+| `file_name` | str | Path to the encrypted dataset file on disk |
+
+### UserKeys (`domain/db_models/UserKeys.py`)
+
+Stores encrypted API keys for each user (HuggingFace, Pollinations, Gemini, etc.).
+
+| Column | Type | Description |
+|---|---|---|
+| `key_id` | PK | |
+| `user_id` | FK → User | Owner |
+| `key_name` | str | Key identifier (e.g., `"huggingface"`) |
+| `key_value_encrypted` | str | API key encrypted with Fernet |
+
+Unique constraint on `(user_id, key_name)`.
+
+---
+
+## Account Authentication
+
+### Google / Gmail OAuth2
+
+Handled by `GmailProvider` (`application/login_providers/gmail_provider.py`).
+
+**Flow:**
+1. `build_login_url(state)` — Generates a Google OAuth2 authorization URL with scopes: `https://mail.google.com/`, `openid`, `email`, `profile`.
+2. User is redirected to Google and grants permissions.
+3. Google redirects back with an authorization code.
+4. `exchange_code_for_tokens(code)` — Exchanges the code for an access token and a refresh token.
+5. `get_account_email(access_token)` — Retrieves the user's Gmail address from the Google API.
+6. The refresh token is encrypted with Fernet and stored in the `Account` table.
+
+Subsequent requests use `refresh_access_token(refresh_token)` to obtain a fresh access token without re-authenticating.
+
+CSRF is prevented via `OAuthStateManager` (`application/login_providers/oauth_state_manager.py`), which validates that the `state` parameter in the callback matches the original request.
+
+**Required settings:** `google_client_id`, `google_client_secret`, `google_redirect_uri`.
+
+### Telegram
+
+Handled by `telegram_auth.py` use case (`application/use_cases/telegram_auth.py`) and `TelegramProvider` (`application/login_providers/telegram_provider.py`).
+
+**Multi-step flow:**
+1. `telegram_auth_start(phone, api_id, api_hash)` — Initiates a Telethon session and sends a verification code to the phone number. The pending auth state is stored in a temporary in-memory cache (TTL: 600s).
+2. `telegram_auth_verify(phone, code, password?)` — Submits the verification code (and optional 2FA password). On success, a `StringSession` string is returned by Telethon.
+3. The session string, along with `api_id`, `api_hash`, and `phone`, is serialized to JSON, encrypted with Fernet, and stored as the `refresh_token` in the `Account` table.
+4. `telegram_auth_relogin(account_id)` — Reconstructs a live Telethon session from the stored credentials when needed.
+
+---
+
+## Use Cases
+
+Business logic is organized in `application/use_cases/`:
+
+### `auth.py` — User Authentication
+- **`login_user(db, username, password)`** — Validates credentials against the database and issues a JWT access token.
+- **`register_user(db, register_request)`** — Checks that the username is unique, creates the user record, and returns a JWT.
+- **`login_provider_callback(db, provider_code, state, current_user)`** — Handles the OAuth2 callback for Gmail: validates state, exchanges the code for tokens, retrieves the account email, and creates or updates the `Account` record.
+
+### `accounts.py` — Account Management
+- **`get_user_accounts(user_id, db)`** — Returns all connected accounts for a user, with live connectivity validation for each.
+- **`delete_account(db, current_user, account_id)`** — Removes an account record from the database.
+
+### `clustering.py` — Document Clustering
+- **`cluster_all_emails(dataset_id, strategy_config, db, current_user)`** — Loads a dataset, tokenizes content, generates embeddings, runs TF-IDF, applies the chosen clustering strategy, and generates cluster titles via TF-IDF scoring. Results are cached by strategy hash.
+- **`cluster_per_sender(dataset_id, strategy_config, db, current_user)`** — Groups documents by sender first (top senders by percentile), then clusters within each group independently. Returns a list of `{ sender, clusters: [{ title, docs }] }`.
+
+### `emails_analysis.py` — Email/Message Analysis
+- **`get_dataset_tokens_ngrams(dataset_id, ...)`** — Tokenizes the dataset and returns the top TF-IDF n-grams.
+- **`get_dataset_keywords(dataset_id, ...)`** — Runs KeyBERT over the dataset and returns keywords with aggregated frequency and relevance scores.
+- **`get_cluster_title_prompt(dataset_id, cluster_doc_ids, ...)`** — Builds an LLM-ready prompt to generate a title for a cluster. For emails, uses sender and subject metadata; for Telegram, extracts the top 10 keyphrases from the cluster documents.
+
+### `summarizing.py` — Text Summarization
+- **`get_group_messages_summarize_prompt(dataset_id, doc_ids, ...)`** — Builds the summary prompt for a group of messages, including an estimated token count.
+- **`get_group_messages_summary(dataset_id, doc_ids, provider, model, ...)`** — Calls the configured prompter to generate a summary. Results are cached per `(dataset_id, doc_ids, provider, model)` combination.
+
+### `dataset_operations.py` — Dataset Lifecycle
+- **`save_dataset_content(user, account_id, criteria, ds_name, db)`** — Fetches emails or Telegram messages via the appropriate platform service, encrypts the content, writes it to disk, and inserts the dataset metadata into the database. Limited to 3 datasets per user in production.
+- **`delete_dataset(dataset_id, db, current_user)`** — Deletes the dataset file from disk and removes the database record.
+- **`get_user_datasets(user_id, db)`** — Returns the user's own datasets plus any available public datasets.
+- **`get_ds_keywords_entities(dataset_id, db, current_user)`** — Runs spaCy NER over the dataset content and returns a structured entity map.
+- **`get_html_content(dataset_id, email_id, db, current_user)`** — Retrieves the raw HTML body of a specific email from a dataset.
+
+### `gmail_get.py` — Gmail Inbox Access
+- **`get_gmail_inbox_meta(account_id, page, num_rows, db, current_user)`** — Returns paginated inbox metadata (sender, subject, date) using a cached IMAP connection.
+- **`get_inbox_count(account_id, db, current_user)`** — Returns total email count for the inbox.
+- **`get_inbox_criteria(account_id, criteria, page, num_rows, db, current_user)`** — Searches the inbox with `InboxCriteria` filters and returns paginated results.
+- **`get_html_content(account_id, email_id, db, current_user)`** — Fetches the HTML body of a specific email directly from Gmail.
+
+### `telegram_auth.py` — Telegram Authentication
+- **`telegram_auth_start(request, db, current_user)`** — Sends a Telegram verification code to the user's phone.
+- **`telegram_auth_verify(request, db, current_user)`** — Verifies the code (+ optional 2FA), completes authentication, and stores the encrypted session.
+- **`telegram_auth_relogin(account_id, db, current_user)`** — Refreshes an expired Telegram session from stored credentials.
+
+### `telegram_uses.py` — Telegram Operations
+- **`get_entities(account_id, db, current_user)`** — Lists all accessible Telegram chats, groups, and channels.
+- **`get_messages(account_id, chat_id, limit, db, current_user)`** — Fetches messages from a single chat.
+- **`get_messages_multiple_chats(account_id, entity_message_tuples, db, current_user)`** — Batch-fetches specific messages from multiple chats in parallel.
+- **`analyze_messages(messages)`** — Runs spaCy NER over a list of messages with parallel processing and LRU caching.
+- **`get_message_media(account_id, chat_id, message_id, db, current_user)`** — Downloads and returns media from a specific Telegram message.
+
+---
 
 ## Security
 
-- **Fernet Encryption:**  
-   Encrypts user data and secrets.
-- **RSA Encryption:**  
-   Public key sent to frontend; sensitive data is encrypted client-side and decrypted server-side.
-- **Encrypted Datasets:**  
-   All datasets are stored encrypted on disk.
-- **Encrypted Database Fields:**  
-   Sensitive fields in the database are encrypted.
+- **Fernet Encryption** — All sensitive database fields (refresh tokens, API keys) and dataset files on disk are encrypted using Fernet (AES-128).
+- **RSA Encryption** — A 2048-bit RSA key pair is rotated every 4 days. The public key is exposed to the frontend, which encrypts sensitive inputs before transmission. The server decrypts using the private key.
+- **JWT Authentication** — All protected endpoints require a valid JWT issued at login/registration.
+- **OAuth2 CSRF Protection** — State tokens are validated on OAuth2 callbacks to prevent cross-site request forgery.
 
-## Caching
-
-- **Keybuilder:**  
-   Generates cache keys for efficient data retrieval.
-- **LRU Cacher:**  
-   In-memory Least Recently Used cache for expensive operations.
-
-## Scheduled Jobs
-
-- **APScheduler:**  
-   Used for scheduling periodic tasks such as fetching model metadata and other maintenance jobs.
-
-## Error Handling
-
-- **Infrastructure Errors:**  
-   Issues with external services or technical failures.
-- **Application Errors:**  
-   Business logic or validation failures.
-- **Warnings:**  
-   Non-critical issues that do not block operations.
+---
 
 ## Logging
 
-- Uses Python's `logging` module for structured logging of activities and errors.
-- Logs are saved in /logs for 3 files:
-- warning_logs.log: logs that can be ignored but good practice to check every period
-- error_logs.log: logs for full track traces of runtimes errors separated with date and layer and exception message.
-- requests.logs: containing all requests coming to the api with the DATE, IP, REQUESTED ENDPOINT
+Uses Python's `logging` module configured in `api/core/logger.py`. All infrastructure operations, use case executions, and errors are logged for monitoring and debugging.
 
-## Application Use Cases
+Logs are saved in /logs for 3 files:
+- logs/warning_logs.log: logs that can be ignored but good practice to check every period
+- logs/error_logs.log: logs for full track traces of runtimes errors separated with date and layer and exception message.
+- logs/requests.logs: containing all requests coming to the api with the DATE, IP, REQUESTED ENDPOINT
 
-- Business logic is implemented in `/application/use_cases`.
-- Use cases orchestrate infrastructure services to perform operations such as clustering, dataset management, authentication, and integration with external platforms.
+
+---
+
+## Error Handling
+
+Custom exceptions are defined in `application/exceptions.py`:
+
+- **`InfrastructureError`** — External service or technical failures (IMAP connection lost, embedding model error, etc.)
+- **`ApplicationError`** — Business logic or validation failures (dataset not found, user already exists, etc.)
+- **`Warning`** — Non-critical issues that do not block the operation
+
+---
 
 
 ## Libraries used: 
@@ -200,4 +524,3 @@ API endpoints invoke application use cases, which operate on domain models and l
 - For telegram: telethon
 - For database: SQLLite
 - For encryption:  sqlalchemy, cryptography
-
