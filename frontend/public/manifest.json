@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "ThreadMind",
+  "name": "ThreadMind",
+  "description": "Fetch and analyze emails and Telegram messages with AI-powered NLP services.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#0d47a1",
+  "background_color": "#0d1117"
 }

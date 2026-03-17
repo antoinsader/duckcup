@@ -5,12 +5,13 @@ from __future__ import annotations
 from typing import Any
 
 
-API_TITLE = "Mail Final API"
-API_DESCRIPTION = (
-    "API for authentication, account integrations, dataset management, email access, "
-    "secret storage, Telegram ingestion, and NLP workflows."
-)
-API_VERSION = "1.0.0"
+API_TITLE = "THREADMIND_API"
+API_DESCRIPTION = """
+ThreadMind is a production-ready backend application designed to manage, analyze, and process user data from email and messaging platforms. It enables users to authenticate, connect Gmail and Telegram accounts, fetch and filter messages, save filtered data into datasets, and perform advanced NLP operations such as clustering, keyword extraction, summarization, and NER. 
+The system is built for maintainability, extensibility, and security, providing robust logging and error handling.
+"""
+
+API_VERSION = "1.1.0"
 
 
 COMMON_ERROR_RESPONSES: dict[int, dict[str, Any]] = {
