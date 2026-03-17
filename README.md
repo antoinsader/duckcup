@@ -14,6 +14,18 @@ The project can be run in two ways:
 - Using Docker (recommended) – fastest way to run the entire system
 - Running backend and frontend independently – useful for development
 
+## Architecture (Docker)
+
+```
+Browser → :80 / :443
+              │
+           nginx  ← single entry point
+              ├── /api/*  →  backend:8000  (FastAPI)
+              └── /*      →  frontend:80  (React, static)
+```
+
+All external traffic goes through nginx. The backend and frontend are not directly exposed to the host.
+
 ## What you can do inside the application:
 
 - Connect to multiple gmail accounts
@@ -67,18 +79,18 @@ Docker will:
 - build the backend and frontend containers
 - install all dependencies
 - generate secrets automatically on first run
-- start both services
+- start all services (nginx, backend, frontend)
 
 5. Access the application
 
-Frontend:
+Application (served through nginx):
 ```
-http://localhost:3000
+http://localhost
 ```
 
-Backend API:
+API docs (Swagger):
 ```
-http://localhost:8000
+http://localhost/docs
 ```
 
 ## Running Without Docker (Development Mode)
@@ -99,6 +111,7 @@ You have to set your own environment variables to make the back-end run, see how
 
 - Make sure node is installed
 - Download dependencies using ``` npm install ```
+- Set `REACT_APP_API_BASE_URL=http://localhost:8000/` in `frontend/.env` (points directly to backend, bypassing nginx)
 - Run the application using ``` npm run start ```
 
 
@@ -109,7 +122,8 @@ The backend API endpoints are documented in static .md file:
 [endpoints.md](https://github.com/antoinsader/threadmind/blob/publish/backend/endpoints.md)
 
 This file describes all the available api endpoints.
-Interactive docs are available at `/docs` (Swagger UI) and `/redoc` (ReDoc) when the server is running.
+Interactive docs are available at `/docs` (Swagger UI) and `/redoc` (ReDoc) when running. 
+In Docker, access them at `http://localhost/docs`.
 
 
 ## Technology Stack
@@ -137,7 +151,7 @@ Interactive docs are available at `/docs` (Swagger UI) and `/redoc` (ReDoc) when
 - Make telegram bot to connect to the app
 - Make a cli interface for the application
 - Creating a wiki
-
+- Make caching depends on memory
 
 
 ## License

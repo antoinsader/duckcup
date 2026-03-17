@@ -97,6 +97,10 @@ app.include_router(admin.router, prefix="/admin", tags=["admin"])
 
 print(f"API router initialized")
 
+@app.get("/health")
+def health_check():
+    return {"message": "API is healthy", "success": True}
+
 @app.get("/")
 def read_root():
     """Return a basic health response for the API.
