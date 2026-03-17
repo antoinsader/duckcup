@@ -154,7 +154,7 @@ In Docker, access them at `http://localhost/docs`.
 - Make a cli interface for the application
 - Creating a wiki
 - Make caching depends on memory
-
+- Make more test units
 
 ## License
 
