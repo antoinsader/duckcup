@@ -3,6 +3,7 @@
 
 > (At first I made the name ThreadMind as just an idea from LLM, then I discover that this name is used, so now I am working on changing it to DuckCup, because those were the 2 items that are in front of me)
 
+![DuckCup](duckcup.webp)
 
 ## Introduction
 
