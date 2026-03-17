@@ -7,7 +7,6 @@ import ConfirmPopup from "../../components/reusable/Popup/ConfirmPopup";
 
 import { delete_user_dataset } from "../../lib/backend/dataset";
 
-import styles from "./Home.module.scss";
 
 
 export default function UserDatasetsCard({ datasets_data, refresh_datasets }) {

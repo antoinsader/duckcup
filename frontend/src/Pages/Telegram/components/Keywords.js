@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useState } from "react";
 import styles from "../Telegram.module.scss";
 
 import { FaChevronCircleDown, FaChevronCircleUp } from "react-icons/fa";

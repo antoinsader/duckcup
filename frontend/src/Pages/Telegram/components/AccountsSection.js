@@ -81,8 +81,6 @@ export default function AccountSection({
     // STATES: POPUP DATA
     const [selected_message_popup_data, set_selected_message_popup_data] =
         useState(null);
-    const [selected_entity_popup_title, set_selected_entity_popup_title] =
-        useState("Entity Details");
     const [selected_message_popup_title, set_selected_message_popup_title] =
         useState("Message Details");
     // STATES: POPUP MEDIA DATA
@@ -149,7 +147,6 @@ export default function AccountSection({
 
 
 
-    const entity_row_refs = useRef({});
     const message_media_url_ref = useRef("");
     const message_media_request_id_ref = useRef(0);
 
@@ -472,7 +469,7 @@ export default function AccountSection({
                     date_filter_count_map={date_filter_count_map}
                     selected_date_filter={selected_date_filter}
                     on_select_date_filter={(date_filter_id) => date_filter_select_function(date_filter_id, account_id)}
-                    chips_disabled={!filtered_messages || filtered_messages.length == 0}
+                    chips_disabled={!filtered_messages || filtered_messages.length === 0}
 
 
                 />

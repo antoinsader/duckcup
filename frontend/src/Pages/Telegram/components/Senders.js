@@ -84,7 +84,6 @@ export default function Senders({
       })
       .map((row_item) => row_item.entity_row);
   }, [
-    account_id,
     filtered_sender_rows,
     selected_senders_map,
   ]);

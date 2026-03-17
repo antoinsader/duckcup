@@ -1468,6 +1468,7 @@ export default function Datasets() {
     email_columns,
     filtered_dataset_content_data,
     dataset_content_loading,
+    dataset_content_data.length
 
   ]);
 

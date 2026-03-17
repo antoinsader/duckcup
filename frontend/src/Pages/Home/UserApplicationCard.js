@@ -1,5 +1,3 @@
-import Button from "../../components/reusable/Button/Button";
-
 import styles from "./Home.module.scss";
 
 export default function UserApplicationCard({

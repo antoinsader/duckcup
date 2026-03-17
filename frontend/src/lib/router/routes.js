@@ -1,5 +1,5 @@
 import { CiLogin } from "react-icons/ci";
-import { FiBook, FiDatabase, FiHome, FiUser, FiUsers } from "react-icons/fi";
+import { FiDatabase, FiHome, FiUser, FiUsers } from "react-icons/fi";
 import { MdOutlineMail } from "react-icons/md";
 import { FaTelegram } from "react-icons/fa";
 import Home from "../../Pages/Home/Home";
