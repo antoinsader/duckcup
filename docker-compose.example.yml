@@ -89,7 +89,7 @@ services:
         # ? I am doing here and in the front-end Dockerfile, do we need both? or just one of them is enough?
         - REACT_APP_API_BASE_URL=/api/
         - REACT_APP_LOGIN_GOOGLE_ROUTE=/api/auth/login_google
-        - REACT_APP_FRONT_END_NAME=ThreadMind
+        - REACT_APP_FRONT_END_NAME=DuckCup
     # No host ports — accessed only through nginx on port 80
     restart: unless-stopped
     healthcheck:

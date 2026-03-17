@@ -1,6 +1,6 @@
 {
-  "short_name": "ThreadMind",
-  "name": "ThreadMind",
+  "short_name": "DuckCup",
+  "name": "DuckCup",
   "description": "Fetch and analyze emails and Telegram messages with AI-powered NLP services.",
   "icons": [
     {

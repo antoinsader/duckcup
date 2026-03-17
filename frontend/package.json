@@ -1,7 +1,7 @@
 {
-  "name": "thread-mind-frontend",
+  "name": "duckcup-frontend",
   "version": "1.0.0",
-  "description": "ThreadMind Frontend is a React application for connecting emails and telegram accounts, browsing content, creating datasets, and running NLP workflows on those datasets.",
+  "description": "DuckCup Frontend is a React application for connecting emails and telegram accounts, browsing content, creating datasets, and running NLP workflows on those datasets.",
   "dependencies": {
     "@tanstack/react-table": "^8.21.3",
     "@testing-library/dom": "^10.4.1",

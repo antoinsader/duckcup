@@ -1,14 +1,14 @@
-# ThreadMind Frontend
+# DuckCup Frontend
 
-ThreadMind Frontend is a React application for connecting emails and telegram accounts, browsing content, creating datasets, and running NLP workflows on those datasets.
+DuckCup Frontend is a React application for connecting emails and telegram accounts, browsing content, creating datasets, and running NLP workflows on those datasets.
 
 ---
 
 ## Backend Requirement
 
-This frontend requires the ThreadMind backend to be running.
+This frontend requires the DuckCup backend to be running.
 
-- [Backend repository](https://github.com/antoinsader/threadmind/tree/publish/backend)
+- [Backend repository](../backend/README.md)
 - Start the backend first, then run this frontend.
 
 ---

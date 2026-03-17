@@ -1,10 +1,12 @@
 
-# ThreadMind project
+# DuckCup project
+
+> (At first I made the name ThreadMind as just an idea from LLM, then I discover that this name is used, so now I am working on changing it to DuckCup, because those were the 2 items that are in front of me)
 
 
 ## Introduction
 
-Threadmind is a full-stack application used for email and telegram messages fetching and analysis, build with Python backend (FastAPI) and React frontend.
+DuckCup is a full-stack application used for email and telegram messages fetching and analysis, build with Python backend (FastAPI) and React frontend.
 
 The backend provides API services for authentication, email/telegram emails and messages fetching, dataset management, and nlp services.
 The frontend provides the user interface for interacting with the system.
@@ -53,7 +55,7 @@ Open `docker-compose.yml` and fill in your Google OAuth credentials:
 - GOOGLE_CLIENT_SECRET=your_google_client_secret_here
 ```
 
-See how to obtain these in [backend/README.md#setup-google-for-gmail-connection](https://github.com/antoinsader/threadmind/tree/publish/backend#setup-google-for-gmail-connection)
+See how to obtain these in [backend/README.md#setup-google-for-gmail-connection](backend/README.md#setup-google-for-gmail-connection)
 
 > All other secrets (`JWT_SECRET_KEY`, `SPECIAL_PASSWORD`, `BACKEND_SECRETS_ENCRYPTION_KEY`) are **generated automatically** on the first run and saved to `./data/.secrets`. You do not need to set them manually.
 > both **./data** and **.docker-compose.yml** are in .gitignore.
@@ -105,7 +107,7 @@ If you prefer to run the services independently for development, follow the inst
 - Create ```.env``` file from ```.env.example```
 - Run the server using ```python main.py```
 
-You have to set your own environment variables to make the back-end run, see how in [backend/readme.md#environment-variables](https://github.com/antoinsader/threadmind/tree/publish/backend#environment-variables) 
+You have to set your own environment variables to make the back-end run, see how in [backend/readme.md#environment-variables](backend/README.md#environment-variables) 
 
 
 
@@ -121,7 +123,7 @@ This document explains how users can use the application different services.
 
 ## API Documentation:
 The backend API endpoints are documented in static .md file:
-[endpoints.md](https://github.com/antoinsader/threadmind/blob/publish/backend/endpoints.md)
+[endpoints.md](backend/endpoints.md)
 
 This file describes all the available api endpoints.
 Interactive docs are available at `/docs` (Swagger UI) and `/redoc` (ReDoc) when running. 

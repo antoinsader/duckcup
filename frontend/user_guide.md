@@ -1,10 +1,10 @@
-﻿# ThreadMind User Guide
+﻿# DuckCup User Guide
 
-Welcome to ThreadMind! This guide walks you through every feature of the application so you can get the most value out of your connected accounts and datasets. Whether you are just getting started or looking for tips on advanced analysis, this document covers it all.
+Welcome to DuckCup! This guide walks you through every feature of the application so you can get the most value out of your connected accounts and datasets. Whether you are just getting started or looking for tips on advanced analysis, this document covers it all.
 
 ## About The Application
 
-ThreadMind is a platform for connecting your communication channels, browsing your messages, building smart datasets, and running AI-powered analysis on top of them. The workflow is designed to be simple: connect accounts, filter the content you care about, save a dataset, and then use built-in tools to extract insights.
+DuckCup is a platform for connecting your communication channels, browsing your messages, building smart datasets, and running AI-powered analysis on top of them. The workflow is designed to be simple: connect accounts, filter the content you care about, save a dataset, and then use built-in tools to extract insights.
 
 ### Everything You Can Do
 
@@ -27,13 +27,13 @@ ThreadMind is a platform for connecting your communication channels, browsing yo
 - Manage open pages as tabs and reorder them to match your workflow.
 
 ### High-Level Architecture Diagram
-![ThreadMind high-level architecture](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/app-overview.png)
+![DuckCup high-level architecture](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/app-overview.png)
 
 ---
 
 ## Navigation And The Tab Bar
 
-ThreadMind uses a tab-based navigation system. Every page you visit opens as a tab in the top bar, and you can have multiple pages open at the same time without losing your place.
+DuckCup uses a tab-based navigation system. Every page you visit opens as a tab in the top bar, and you can have multiple pages open at the same time without losing your place.
 
 ### Working With Tabs
 ![Tabs navigation](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/tabs_navigation.gif)

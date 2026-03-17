@@ -58,7 +58,7 @@ export default function Login() {
   return (
     <div className={styles.login_page_root}>
       <div className={styles.login_card}>
-        <h1> Welcome to ThreadMind </h1>
+        <h1> Welcome to DuckCup </h1>
         <p>Once you login, you can use our services.</p>
         {loading_auth ? (
           <div className="spinner"></div>

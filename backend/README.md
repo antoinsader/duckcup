@@ -1,8 +1,8 @@
-# ThreadMind — Backend
+# DuckCup — Backend
 
 ## Introduction
 
-ThreadMind is a production-ready backend application designed to manage, analyze, and process user data from email and messaging platforms. It enables users to authenticate, connect Gmail and Telegram accounts, fetch and filter messages, save filtered data into datasets, and perform advanced NLP operations such as clustering, keyword extraction, summarization, and NER. 
+DuckCup is a production-ready backend application designed to manage, analyze, and process user data from email and messaging platforms. It enables users to authenticate, connect Gmail and Telegram accounts, fetch and filter messages, save filtered data into datasets, and perform advanced NLP operations such as clustering, keyword extraction, summarization, and NER. 
 The system is built for maintainability, extensibility, and security, providing robust logging and error handling.
 
 ---
@@ -10,7 +10,7 @@ The system is built for maintainability, extensibility, and security, providing 
 
 ## Front-end 
 
-There is already front-end ready to be connected for the API inside [FRONT END REPO](https://github.com/antoinsader/threadmind/tree/publish/frontend)
+There is already front-end ready to be connected for the API inside [FRONT END REPO](../frontend/README.md)
 
 ---
 
@@ -33,7 +33,7 @@ API endpoints invoke application use cases, which operate on domain models and l
 ---
 ## Installation
 
-For installation you can follow the guide of [Project README.md](https://github.com/antoinsader/threadmind/blob/publish/README.md)
+For installation you can follow the guide of [Project README.md](../README.md)
 
 **You have to setup the correct environment variables.**
 
@@ -84,7 +84,7 @@ python -c "import secrets; print(secrets.token_urlsafe(16))"
 
 ## API documentations:
 
-You can see static [api endpoints](https://github.com/antoinsader/threadmind/blob/publish/backend/endpoints.md) containing the list of available endpoints. 
+You can see static [api endpoints](endpoints.md) containing the list of available endpoints. 
 Or you can use Interactive docs available at `<BACKEND_URL>/docs` (Swagger UI) and `<BACKEND_URL>/redoc` (ReDoc) when the server is running.
 
 ---
