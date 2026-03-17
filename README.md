@@ -14,18 +14,6 @@ The project can be run in two ways:
 - Using Docker (recommended) – fastest way to run the entire system
 - Running backend and frontend independently – useful for development
 
-## Architecture (Docker)
-
-```
-Browser → :80 / :443
-              │
-           nginx  ← single entry point
-              ├── /api/*  →  backend:8000  (FastAPI)
-              └── /*      →  frontend:80  (React, static)
-```
-
-All external traffic goes through nginx. The backend and frontend are not directly exposed to the host.
-
 ## What you can do inside the application:
 
 - Connect to multiple gmail accounts
@@ -69,6 +57,20 @@ See how to obtain these in [backend/README.md#setup-google-for-gmail-connection]
 
 > All other secrets (`JWT_SECRET_KEY`, `SPECIAL_PASSWORD`, `BACKEND_SECRETS_ENCRYPTION_KEY`) are **generated automatically** on the first run and saved to `./data/.secrets`. You do not need to set them manually.
 > both **./data** and **.docker-compose.yml** are in .gitignore.
+
+
+```
+Browser → :80 / :443
+              │
+           nginx  ← single entry point
+              ├── /api/*  →  backend:8000  (FastAPI)
+              └── /*      →  frontend:80  (React, static)
+```
+
+All external traffic goes through nginx. The backend and frontend are not directly exposed to the host.
+
+
+
 
 4. Start the application
 ```
