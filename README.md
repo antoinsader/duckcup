@@ -1,14 +1,9 @@
 
 # DuckCup project
 
-![DuckCup](duckcup.webp)
-
 ## Introduction
 
-DuckCup is a full-stack application used for email and telegram messages fetching and analysis, build with Python backend (FastAPI) and React frontend.
-
-The backend provides API services for authentication, email/telegram emails and messages fetching, dataset management, and nlp services.
-The frontend provides the user interface for interacting with the system.
+A self-hosted full-stack platform (FastAPI + React) for collecting Gmail and Telegram messages into encrypted datasets and analysing them with a pluggable NLP pipeline — supporting 4 clustering algorithms, 3 embedding backends, and 3 LLM backends.
 
 The project can be run in two ways:
 
