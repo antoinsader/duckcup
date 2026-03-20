@@ -87,6 +87,8 @@ def _configure_requests_logger(log_dir: str):
     logger.addHandler(
         _create_rotating_handler(os.path.join(log_dir, "requests.log"), logging.INFO)
     )
+    handler.addFilter(_HealthCheckFilter())
+    logger.addHandler(handler)
 
 
 def _configure_warning_logger(log_dir: str):
