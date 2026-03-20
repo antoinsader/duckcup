@@ -18,6 +18,6 @@ if __name__ == "__main__":
         "api.router:app",
         host=host,
         port=port,
-        reload=settings.testing,
+        reload=True,
         reload_excludes=["unit_tests/*", "unit_tests/**"],
     )

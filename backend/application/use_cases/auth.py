@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
 from api.core.security import create_access_token
-from application.exceptions import  ERRORS_LAYERS, ApplicationError
+from application.exceptions import  ERRORS_LAYERS, ApplicationError, NotAuthenticatedError
 from api.core.config import settings
 from application.login_providers.login_provider import EmailsProviders
 from application.login_providers.oauth_state_manager import validate_oauth_state
@@ -35,7 +35,7 @@ def login_user(db: Session, username: str, password: str) -> tuple:
         )
 
     if not user:
-        raise ApplicationError(
+        raise NotAuthenticatedError(
             f"Invalid Credentials ",
             layer = ERRORS_LAYERS.API_ROUTES_AUTH,
             only_back_message=f"Wrong password for username: {username}"
