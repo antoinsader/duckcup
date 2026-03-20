@@ -37,6 +37,9 @@ services:
       - ./data:/app/data
       # Persists log files across restarts
       - ./logs:/app/logs
+      
+      - ./backend:/app 
+
     environment:
 
       # ── Required: Google OAuth (for Gmail connection) ──────────────────────

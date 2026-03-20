@@ -23,6 +23,10 @@ ERROR_LOGGER_NAME = "error_logger"
 
 _LOGGING_CONFIGURED = False
 
+class _HealthCheckFilter(logging.Filter):
+    def filter(self, record: logging.LogRecord) -> bool:
+        return "/health" not in record.getMessage()
+
 
 class _ConsoleMessageOnlyFormatter(logging.Formatter):
     def format(self, record):
