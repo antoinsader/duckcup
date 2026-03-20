@@ -25,18 +25,18 @@ Instructions for using the application are available in wiki:
 
 The easiest way to run the project is using Docker.
 
-1. Install Docker:
+### 1. Install Docker:
 
 Install Docker and Docker Compose:
 https://docs.docker.com/get-docker/
 
-2. Clone the repository
+### 2. Clone the repository
 ```
 git clone https://github.com/antoinsader/duckcup.git
 cd duckcup
 ```
 
-3. Configure Docker Compose
+### 3. Configure Docker Compose
 
 Copy the example file:
 ```
@@ -68,7 +68,7 @@ All external traffic goes through nginx. The backend and frontend are not direct
 
 
 
-4. Start the application
+### 4. Start the application
 ```
 docker compose up --build
 ```
@@ -79,7 +79,7 @@ Docker will:
 - generate secrets automatically on first run
 - start all services (nginx, backend, frontend)
 
-5. Access the application
+### 5. Access the application
 
 Application (served through nginx):
 ```
