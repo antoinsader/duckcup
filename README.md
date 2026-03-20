@@ -33,7 +33,7 @@ https://docs.docker.com/get-docker/
 2. Clone the repository
 ```
 git clone https://github.com/antoinsader/duckcup.git
-cd threadmind
+cd duckcup
 ```
 
 3. Configure Docker Compose
