@@ -19,7 +19,7 @@ The project can be run in two ways:
 - Perform NLP services on your datasets like clustering, summarization,...
 
 Instructions for using the application are available in wiki:
-[Wiki User guide](https://github.com/antoinsader/threadmind/wiki/user_guide)
+[Wiki User guide](https://github.com/antoinsader/duckcup/wiki/user_guide)
 
 ## Quick Start (Recommended: Docker)
 
@@ -32,7 +32,7 @@ https://docs.docker.com/get-docker/
 
 2. Clone the repository
 ```
-git clone https://github.com/antoinsader/threadmind.git
+git clone https://github.com/antoinsader/duckcup.git
 cd threadmind
 ```
 
