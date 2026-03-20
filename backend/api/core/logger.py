@@ -84,8 +84,10 @@ def _configure_requests_logger(log_dir: str):
     logger.setLevel(logging.INFO)
     logger.propagate = False
     _remove_handlers(logger)
-    logger.addHandler(
-        _create_rotating_handler(os.path.join(log_dir, "requests.log"), logging.INFO)
+
+
+    handler = _create_rotating_handler(
+        os.path.join(log_dir, "requests.log"), logging.INFO
     )
     handler.addFilter(_HealthCheckFilter())
     logger.addHandler(handler)
