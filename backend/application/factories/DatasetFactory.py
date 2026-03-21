@@ -29,10 +29,7 @@ def get_public_dataset(load_not_only_front : bool, load_content: bool = True):
     dataset = PUBLIC_DATASETS[0]
 
     if load_content:
-        encrypter = FernetEncrypter( settings.backend_secrets_encryption_key.get_secret_value())
-        cipher_text = get_pkl(dataset.file_name)
-        plain_text = encrypter.decrypt(cipher_text)
-        content = pickle.loads(plain_text)
+        content = get_pkl(dataset.file_name)
     else:
         content = None
 
