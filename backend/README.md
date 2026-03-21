@@ -6,9 +6,6 @@ DuckCup is a production-ready backend application designed to manage, analyze, a
 The system is built for maintainability, extensibility, and security, providing robust logging and error handling.
 
 ---
-![Summarize cluster](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/summarize cluster.mp4)
-
----
 
 
 ## Front-end 

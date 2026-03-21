@@ -4,7 +4,7 @@ DuckCup Frontend is a React application for connecting emails and telegram accou
 
 
 
-![Summarize clusters](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/summarize cluster.mp4)
+![Summarize clusters](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/summarize_cluster.mp4)
 
 ---
 
