@@ -1190,7 +1190,7 @@ export default function Datasets() {
                   date_filter_count_map?.[String(date_filter_row.id || "")] ||
                     0,
                 );
-                if (data_filter_count === 0) return null;
+                if (date_filter_count_map === 0) return null;
                 return (
                   <button
                     key={`date-filter-${date_filter_row.id}`}
