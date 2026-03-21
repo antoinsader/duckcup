@@ -1,6 +1,9 @@
 
 from contextlib import asynccontextmanager
 import logging
+from api.core.db import create_db_engine, create_session_factory
+from application.auto_events import sync_events_to_db
+from infrastructure.events_scheduler import run_automatic_events, start_scheduler
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -37,23 +40,23 @@ async def lifespan(app: FastAPI):
             "Critical error: Backend secrets encryption key is not set. The application cannot run without it."
         )
         raise Exception("Backend secrets encryption key is not set.")
-    # engine = create_db_engine(settings.database_url)
-    # localSession = create_session_factory(engine)
-    # db = localSession()
-    # try:
-    #     sync_events_to_db(db)
-    # except Exception as ex:
-    #     error_logger.error(
-    #         f"APPLICATION ERROR | Cannot sync events to db | ",
-    #         exc_info=True
-    #     )
-    # run_automatic_events()
-    # start_scheduler()
+    engine = create_db_engine(settings.database_url)
+    localSession = create_session_factory(engine)
+    db = localSession()
+    try:
+        sync_events_to_db(db)
+    except Exception as ex:
+        error_logger.error(
+            f"APPLICATION ERROR | Cannot sync events to db | ",
+            exc_info=True
+        )
+    run_automatic_events()
+    start_scheduler()
 
 
     yield
     # Shutdown logic (optional)
-    # scheduler.shutdown()
+    scheduler.shutdown()
 
 app = FastAPI(
     lifespan=lifespan,
