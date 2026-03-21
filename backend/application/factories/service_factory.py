@@ -41,24 +41,26 @@ def _get_telegram_service(db: Session, account: Account , user_id: int) -> Teleg
 def _get_email_service(db: Session, account: Account , user_id: int) -> EmailImapService:
     """Connect and return Email service using account access token generated from refresh token."""
 
+    encrypter = FernetEncrypter( settings.backend_secrets_encryption_key.get_secret_value())
+    account_controller = AccountsRepositoryControllerDb(db, encrypter)
+
+    providers = EmailsProviders()
+    provider = providers.get_provider_from_id(account.email_provider_id)
+
+    refresh_token = account_controller.get_refresh_token(account.account_id, user_id)
     try:
-        encrypter = FernetEncrypter( settings.backend_secrets_encryption_key.get_secret_value())
-        account_controller = AccountsRepositoryControllerDb(db, encrypter)
-
-        providers = EmailsProviders()
-        provider = providers.get_provider_from_id(account.email_provider_id)
-
-        refresh_token = account_controller.get_refresh_token(account.account_id, user_id)
         access_token = providers.get_access_from_refresh(account.email_provider_id, refresh_token)
-        email_service = EmailImapService(account.email, access_token , provider.host)
-        return email_service
     except Exception as ex:
         raise ApplicationError(
-                "Email service connecting failed",
+                "Error getting access token from refresh token",
                 layer=ERRORS_LAYERS.LOGIN_PROVIDER,
                 ex=ex,
                 only_back_message=f"Email service authentication failed for account_id={account.account_id}",
             )
+
+
+    email_service = EmailImapService(account.email, access_token , provider.host)
+    return email_service
 
 def get_service(db: Session, account: Account, user_id: int) -> EmailImapService | TelegramMessagingService:
     """Get service for account. Either ImapService or TelegramMessagingService"""

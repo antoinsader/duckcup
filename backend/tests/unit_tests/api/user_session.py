@@ -1,35 +1,28 @@
 import pytest
-import httpx
 import os
 
-# ── Credentials from environment ──────────────────────────────
 TEST_USERNAME = os.environ.get("TEST_USERNAME")
 TEST_PASSWORD = os.environ.get("TEST_PASSWORD")
 
-BASE_URL = "http://localhost:8000"
+MISSING_CREDENTIALS_MSG = """
+TEST_USERNAME/TEST_PASSWORD not set — skipping tests
+To enable locally:
+1. nano /home/user/projects/duckcup/data/.secrets
+2. Add: TEST_USERNAME=your_username, TEST_PASSWORD=your_password
+3. Run: export \$(cat /app/data/.secrets | xargs) && echo '✅ Secrets loaded'
 
-# ── Check credentials at module load time ─────────────────────
+"""
+
+
+# ── Skip entire module if no credentials ──────────────────────
 def _check_credentials():
     if not TEST_USERNAME or not TEST_PASSWORD:
         pytest.skip(
-            "TEST_USERNAME/TEST_PASSWORD not set — skipping user session tests.\n"
-            "To enable locally:\n"
-            "  1. nano /home/user/projects/duckcup/data/.secrets\n"
-            "  2. Add: TEST_USERNAME=your_username\n"
-            "          TEST_PASSWORD=your_password\n"
-            "  3. Run: export \$(cat /app/data/.secrets | xargs) && echo '✅ Secrets loaded'",
+            MISSING_CREDENTIALS_MSG,
             allow_module_level=True
         )
 
 _check_credentials()
-
-# ── Fixtures ──────────────────────────────────────────────────
-@pytest.fixture
-def session():
-    """Single client that persists cookies across requests"""
-    with httpx.Client(base_url=BASE_URL, timeout=10) as client:
-        yield client
-
 
 # ── Tests ──────────────────────────────────────────────────────
 class TestUserLogin:

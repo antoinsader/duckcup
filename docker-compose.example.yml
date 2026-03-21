@@ -56,8 +56,8 @@ services:
       - GOOGLE_REDIRECT_URI=http://localhost/api/auth/google_callback
       - FRONTEND_URL=http://localhost/
 
-      # ── Infrastructure (safe to leave as-is) ──────────────────────────────
-      - IS_PROD=True
+      # If you set IS_PROD to true, make sure from uploading certificates in EmailImapService, otherwise you would have InfrastructureError
+      - IS_PROD=False
       - PORT=8000
       - HOST=0.0.0.0
       - SSL_PROTECTED=False
