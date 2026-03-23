@@ -3,7 +3,9 @@
 
 ## Introduction
 
-A self-hosted full-stack platform (FastAPI + React) for collecting Gmail and Telegram messages into encrypted datasets and analysing them with a pluggable NLP pipeline — supporting 4 clustering algorithms, 3 embedding backends, and 3 LLM backends.
+A self-hosted full-stack platform (FastAPI + React) for fethching your Gmail and Telegram messages into encrypted datasets and analysing them with a different options including: Summarizing, Clustering, Topic modeling -Title generation- and Keyword extraction). Using infrastructure built-in NLP pipelines and using third party models connecting to HuggingFace transformers and Pollinations API service.
+
+-------
 
 The project can be run in two ways:
 
