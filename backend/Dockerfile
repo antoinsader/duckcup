@@ -6,8 +6,11 @@ WORKDIR /app
 
 COPY requirements.txt .
 RUN python -m pip install --upgrade pip
-RUN pip install -r requirements.txt
-RUN python -m spacy download en_core_web_md
+RUN python -m venv /app/venv
+RUN /app/venv/bin/pip install --upgrade pip
+RUN /app/venv/bin/pip install -r requirements.txt
+RUN /app/venv/bin/python -m spacy download en_core_web_md
+ENV PATH="/app/venv/bin:$PATH"
 
 COPY . .
 
