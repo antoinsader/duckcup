@@ -7,4 +7,4 @@ __pycache__/
 *.env
 docker-compose.yml
 data/
-
+plan.md
