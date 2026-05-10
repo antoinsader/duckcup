@@ -1,7 +1,5 @@
 # The "version" field is optional in Docker Compose v2+ (docker compose, not docker-compose).
 # It's kept here for compatibility with older tooling. Safe to remove if using Docker Desktop 4+.
-version: "3.8"
-
 services:
 
   nginx:
@@ -39,6 +37,9 @@ services:
       - ./data:/app/data
       # Persists log files across restarts
       - ./logs:/app/logs
+      
+      - ./backend:/app 
+
     environment:
 
       # ── Required: Google OAuth (for Gmail connection) ──────────────────────
@@ -55,8 +56,8 @@ services:
       - GOOGLE_REDIRECT_URI=http://localhost/api/auth/google_callback
       - FRONTEND_URL=http://localhost/
 
-      # ── Infrastructure (safe to leave as-is) ──────────────────────────────
-      - IS_PROD=True
+      # If you set IS_PROD to true, make sure from uploading certificates in EmailImapService, otherwise you would have InfrastructureError
+      - IS_PROD=False
       - PORT=8000
       - HOST=0.0.0.0
       - SSL_PROTECTED=False

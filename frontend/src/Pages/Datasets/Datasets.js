@@ -1190,6 +1190,7 @@ export default function Datasets() {
                   date_filter_count_map?.[String(date_filter_row.id || "")] ||
                     0,
                 );
+                if (date_filter_count_map === 0) return null;
                 return (
                   <button
                     key={`date-filter-${date_filter_row.id}`}
@@ -1210,7 +1211,7 @@ export default function Datasets() {
           {/* Keyword filter */}
           <div className={styles.sender_filters_card}>
             <div className={styles.sender_filters_header}>
-              <span className={styles.card_title}>Filter by keyword</span>
+              <span className={styles.card_title}>Filter by entities</span>
               <span className={styles.subtitle}>
                 {selected_keyword_filters.length > 0 ? (
                   <button
@@ -1227,7 +1228,7 @@ export default function Datasets() {
               </span>
             </div>
             {keyword_entities_loading ? (
-              <span className={styles.dataset_label}>Loading keywords...</span>
+              <span className={styles.dataset_label}>Loading entity types...</span>
             ) : keyword_entities_error ? (
               <span className={styles.dataset_label}>
                 {keyword_entities_error}
@@ -1235,7 +1236,7 @@ export default function Datasets() {
             ) : entity_types.length === 0 ? (
               <span className={styles.dataset_label}>No keywords found</span>
             ) : (
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.7rem" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.7rem", maxHeight: "23vh", overflow: "auto" }}>
                 {entity_types.map((entity_type) => {
                   const entity_keywords = keywords[entity_type] || {};
                   const description = entities_descriptions[entity_type] || "";

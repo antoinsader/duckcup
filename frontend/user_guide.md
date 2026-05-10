@@ -27,7 +27,7 @@ DuckCup is a platform for connecting your communication channels, browsing your 
 - Manage open pages as tabs and reorder them to match your workflow.
 
 ### High-Level Architecture Diagram
-![DuckCup high-level architecture](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/app-overview.png)
+![DuckCup high-level architecture](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/app-overview.png)
 
 ---
 
@@ -36,7 +36,7 @@ DuckCup is a platform for connecting your communication channels, browsing your 
 DuckCup uses a tab-based navigation system. Every page you visit opens as a tab in the top bar, and you can have multiple pages open at the same time without losing your place.
 
 ### Working With Tabs
-![Tabs navigation](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/tabs_navigation.gif)
+![Tabs navigation](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/tabs_navigation.gif)
 
 
 
@@ -54,7 +54,7 @@ DuckCup uses a tab-based navigation system. Every page you visit opens as a tab 
 The theme toggle button in the top navigation bar switches between dark mode (the default) and light mode. Your preference is saved locally and remembered across sessions.
 
 
-![Light/Dark mode](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/theme_toggle.gif)
+![Light/Dark mode](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/theme_toggle.gif)
 
 ---
 
@@ -62,7 +62,7 @@ The theme toggle button in the top navigation bar switches between dark mode (th
 
 The command palette is a quick-action search bar built into the top navigation. It lets you navigate to any page or trigger common actions without reaching for the mouse.
 
-![Command bar](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/command.gif)
+![Command bar](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/command.gif)
 
 
 ### How To Use It
@@ -97,7 +97,7 @@ In addition to navigation, there are action commands:
 
 The Login page is the entry point to the application. Most pages require authentication, so logging in is your first step. You can either sign in with an existing account or register a brand new one from the same screen.
 
-![Login](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/login.gif)
+![Login](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/login.gif)
 
 
 ### Signing In
@@ -130,7 +130,7 @@ The Home page is your dashboard. It gives you a quick snapshot of the applicatio
 
 
 ### Application Status Card
-![Login](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/user_card.png)
+![Login](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/user_card.png)
 
 At the top of the Home page you will see a status card showing:
 - Your **username**.
@@ -140,7 +140,7 @@ At the top of the Home page you will see a status card showing:
 
 ### Your Datasets
 
-![user_ds_card](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/user_ds_card.png)
+![user_ds_card](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/user_ds_card.png)
 
 A compact table lists all your saved datasets with:
 - Dataset number and name.
@@ -149,7 +149,7 @@ A compact table lists all your saved datasets with:
 
 ### Your Accounts
 
-![user_accounts](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/user_accounts.png)
+![user_accounts](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/user_accounts.png)
 
 The accounts section gives you a searchable, manageable list of all connected accounts. You can add new accounts, delete existing ones, and re-login accounts that need credential renewal. If an account token is no longer valid, a **Re-login** button is shown for that account, and you need to log in again to activate it. This is covered in full in the User Accounts section of this guide.
 
@@ -159,7 +159,7 @@ The API Keys card at the bottom of the Home page is where you configure Hugging 
 
 **Hugging-Face & Pollination Tokens**
 
-![user_keys](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/user_keys.png)
+![user_keys](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/user_keys.png)
 
 
 - Shows account meta information when valid.
@@ -184,7 +184,7 @@ The Accounts page lets you manage all the provider connections you have set up. 
 
 ### Connecting A New Account
 
-![accounts_login](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/accounts_login.png)
+![accounts_login](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/accounts_login.png)
 
 1. Click **Add an account** (or use the command palette and type "add account").
 2. A popup shows the available providers (for example Gmail, Telegram).
@@ -225,7 +225,7 @@ You can also open individual emails to inspect them.
 
 The left sidebar lists all your Gmail accounts. Expanding an account shows the most recently loaded emails as clickable child rows, each labelled with the sender signature and date.
 
-![emails_sidebar](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/emails_sidebar.gif)
+![emails_sidebar](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/emails_sidebar.gif)
 
 
 - Clicking an account scrolls the main page to that account's card.
@@ -234,7 +234,7 @@ The left sidebar lists all your Gmail accounts. Expanding an account shows the m
 
 ### Account Email Card
 
-![emails_card](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/emails_card.png)
+![emails_card](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/emails_card.png)
 
 
 Each Gmail account gets its own card in the main area containing:
@@ -246,7 +246,7 @@ Each Gmail account gets its own card in the main area containing:
 
 Before loading emails, you can narrow your query with these filters:
 
-![emails_filter](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/emails_filter.gif)
+![emails_filter](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/emails_filter.gif)
 
 
 - **Sender** — type a sender's name or email address. Autocomplete suggestions are loaded from your inbox metadata.
@@ -280,7 +280,7 @@ Emails are fetched using the IMAP protocol, which is inherently slower than loca
 
 Click any row to open the full email details popup:
 
-![email_details](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/email_details.png)
+![email_details](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/email_details.png)
 
 
 - All email fields are displayed in a structured view (sender, date, subject, flags, body).
@@ -289,7 +289,7 @@ Click any row to open the full email details popup:
 
 ### Saving As A Dataset
 
-![save_emails_dataset](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/save_emails_dataset.png)
+![save_emails_dataset](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/save_emails_dataset.png)
 
 Once you are satisfied with the filtered result, click the **Save as dataset** button to open the save popup:
 1. **Dataset scope** — shows the criteria you applied and the total email count that will be included.
@@ -315,13 +315,13 @@ The Telegram page lets you browse messages from your connected Telegram accounts
 
 All Telegram accounts appear in the sidebar. Each account expands to show the active entities (groups, channels and users).
 
-![telegram_sidebar](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/telegram_sidebar.png)
+![telegram_sidebar](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/telegram_sidebar.png)
 
 - Click an account in the sidebar to scroll to its card.
 
 ### Choosing Entities — Sender Selection
 
-![telegram_senders.gif](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/telegram_senders.gif)
+![telegram_senders.gif](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/telegram_senders.gif)
 
 
 Inside each account card you will see a list of entity chips (senders):
@@ -336,7 +336,7 @@ Inside each account card you will see a list of entity chips (senders):
 
 ### Date Filters
 
-![tg_dates](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/tg_dates.gif)
+![tg_dates](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/tg_dates.gif)
 
 
 Use the date filter buttons above the table to narrow messages by time window:
@@ -353,7 +353,7 @@ Using an explicit range deactivates the preset buttons, and activating a preset 
 Date filter row counts update whenever you change your sender selection, so the number on each button always reflects the messages visible with your current sender filter.
 
 ### Keywords filter
-![telegram_keywords](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/tg_keywords.gif)
+![telegram_keywords](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/tg_keywords.gif)
 
 Each chip shows a keyword represented in the messages and how many messages contain it.
 Click one or more keyword chips to show their associated messages in the table. 
@@ -362,7 +362,7 @@ This is useful for quickly isolating messages that discuss a specific person or 
 
 ### Message Table Columns
 
-![telegram_messages](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/telegram_messages.png)
+![telegram_messages](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/telegram_messages.png)
 
 The combined messages from all selected entities appear in a datatable:
 - **Date** — message timestamp, formatted for readability.
@@ -387,7 +387,7 @@ Click any message row to open a full details popup showing all message fields. I
 Each entity also has a details button that opens a full record: chat ID, chat name, chat type, and any additional metadata stored.
 
 ### Collapsable cards
-![collapsable_cards](https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/tg_collapsable.gif)
+![collapsable_cards](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/tg_collapsable.gif)
 
 Take benefit from the collapsing cards if you want to have better view.
 
@@ -424,59 +424,68 @@ The left sidebar lists all your datasets. Each dataset shows its name and messag
 - **Clusters all**
 - **Summarize messages groups**
 
+![dataset sidebar navigation](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/dataset_sidebar.gif)
+
 Clicking an operation link in the sidebar scrolls directly to that operation section on the page without needing to scroll manually.
-
-### Main Dataset Table
-
-After selecting a dataset, the main section shows all its rows.
-
-**Email dataset columns:**
-- Subject, Date, Sender email, Sender signature, Flags, Contains attachment, Content preview.
-
-**Telegram dataset columns:**
-- Entity name, Message date, Sender username, Message text, Message clean text (hidden by default but searchable).
-
-Click any row to open the full details popup (email popup for Gmail datasets, message popup for Telegram datasets).
 
 ### Dataset-Level Filters
 
 Use these filters before running operations to scope the analysis to a subset of the data:
 
-**Sender filter chips** — a chip for each unique sender in the dataset. Select one or more to restrict rows to those senders. Only 5 chips are shown at first. Click **Show more** to reveal 5 more at a time. Deselect all chips to go back to all senders.
+**Sender filter chips** — a chip for each unique sender in the dataset. Select one or more to filter rows to those senders. selecting a sender will update the other filters' counts. Deselect all chips to go back to all senders. 
+
+![filter by sender](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/filter_by_sender.png)
 
 **Date filter presets:**
+
+You can choose one of the preset data filters:
 - Last hour / Last 3 hours / Last 12 hours
 - Today / Yesterday / Last week / Last 3 weeks
 - Last month / Last 6 months / Last year
+![date filters preset](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/preset_date_filters.png)
 
-**Specific date range** — set an explicit start and end date. Using this deactivates presets, and switching to a preset clears the custom range.
+You can only choose one. 
+Whenever you choose one, the dates inside `filter with specific date range` would be empty.
+When you choose a filter, the `filter by sender` filter will be having only senders that their messages in the date range.
 
-The active filter is shown as a label so you always know what scope is currently applied. All operations use the filtered subset, not the full dataset.
+
+**Specific date range** 
+You can choose explicit start or end date.
+Using this deactivates `Date filter presets` filter.
+
+
+**Filter by Entity** 
+Here you can see the different entities included inside your dataset. the entities are grouped into category, each category represent the group type. 
+
+> In backend, we are using spacy NER. Entity types would not be 100% accurate. 
+
+![dataset keywords filter](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/dataset_keywords_filter.gif)
+
+
+You can select an entity and the datatable will show only messages/emails containing this keyword.
+
+
+
+
+All operations use the filtered subset, not the full dataset.
 
 ### Deleting A Dataset
 
 Click the **Delete dataset** button in the section header. A confirmation popup appears before permanent deletion.
 
+> !Deletion will delete your dataset file.
+
 ---
 
 ### Operation: Dataset Keywords
 
-This operation extracts the most significant terms from the dataset to give you a rapid topic overview.
+This operation extracts the most significant terms from the dataset to give you a rapid topic overview. It will extract using TF-IDF scoring.
 
 **Controls:**
 - **N-grams count** — how many top terms to return (default: 100, must be a positive integer).
-- **Refresh** button — runs the standard extractor that scores terms by frequency.
-- **Advanced key extractor** button — runs a higher-quality method similar to TF-IDF that weights terms by how unique they are across the whole dataset.
+- **Advanced key extractor** button — runs a KeyBert keyword extractor instead of TF-IDF.
 
 **Output:** A grid of keyword chips. Each chip shows the term and its relevance score formatted to 4 decimal places. Higher score = more significant term.
-
-**Tips:**
-- Start with 100 terms to get a wide topic map, then reduce to 20–30 to see only the clearest themes.
-- The advanced extractor is slower but produces more meaningful scores for datasets with varied content.
-
-### Suggested Image Slots
-- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-keywords-output.png`
-- [GIF_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-keywords-flow.gif`
 
 ---
 
@@ -503,9 +512,7 @@ Groups the messages from each sender into topic clusters independently. The resu
 - Document count
 - Expandable messages datatable with the full rows in that cluster
 
-### Suggested Image Slots
-- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-clusters-per-sender.png`
-- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-cluster-card.png`
+![cluster per sender](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/cluster_per_sender.png)
 
 ---
 
@@ -516,6 +523,8 @@ Clusters every message in the dataset together regardless of sender. The result 
 The controls and algorithm options are identical to Clusters Per Sender. The key difference is sender identity is ignored — every message is treated equally. This is the best operation when you want a bird's eye view of what the entire dataset is about.
 
 **Output:** A grid of cluster cards. Each card shows a cluster title, document count, a sender breakdown summary (which senders contributed to this cluster), and an expandable messages table.
+
+
 
 ### AI Features On Cluster Cards
 
@@ -528,18 +537,18 @@ Every cluster card (from both Clusters Per Sender and Clusters All) has two AI-p
 4. Click **Generate**. The AI returns a descriptive title for the cluster.
 5. You can run it multiple times to get a better result or refine further.
 
+
+![refine title](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/refine_title.gif)
+
+
+
 **Summarize Cluster**
 1. Click the summarize button on a cluster card.
 2. Choose provider and model.
 3. Review token cost estimates (input + output).
 4. Click **Summarize**. The summary text appears inside the card.
 
-### Suggested Image Slots
-- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-clusters-all.png`
-- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-cluster-ai-title.png`
-- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-cluster-summarize.png`
-- [GIF_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-cluster-generate-title.gif`
-
+![Summarize cluster](https://raw.githubusercontent.com/antoinsader/duckcup/publish/frontend/public/docs/user_guide_assets/summarize_cluster.gif)
 ---
 
 ### Operation: Summarize Messages Groups
@@ -555,11 +564,6 @@ This is the most flexible analysis tool on the page. Instead of summarizing a wh
 6. The summary answer is displayed in a text area below.
 
 This is especially powerful when you want to summarize a specific conversation thread, a batch of messages on a single topic, or a curated sample you selected by hand rather than trusting the automatic clustering.
-
-### Suggested Image Slots
-- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-summarize-groups.png`
-- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-summarize-prompt-preview.png`
-- [GIF_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/datasets-summarize-custom-selection.gif`
 
 ---
 
@@ -590,9 +594,6 @@ The Profile page shows your current session information and gives you a clean wa
 Click the **Logout** button to end your session. This clears all locally cached email data, calls the logout endpoint on the server, and redirects you to the Login page. A success or error toast is shown.
 
 You can also log out from the command palette by typing "logout".
-
-### Suggested Image Slots
-- [IMAGE_PLACEHOLDER] `https://raw.githubusercontent.com/antoinsader/threadmind/publish/frontend/public/docs/user_guide_assets/profile-page.png`
 
 ---
 

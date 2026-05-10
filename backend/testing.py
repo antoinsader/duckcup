@@ -42,3 +42,7 @@
 
 # from tests.testing_scripts.gmail_account_testing import main as test_gmail_account
 # test_gmail_account()
+
+
+from tests.testing_scripts.use_cases.accounts import main as test_get_user_accounts
+test_get_user_accounts()

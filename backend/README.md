@@ -14,6 +14,7 @@ There is already front-end ready to be connected for the API inside [FRONT END R
 
 ---
 
+
 ## Architecture
 
 The project follows a clean layered architecture:

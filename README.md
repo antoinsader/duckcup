@@ -1,15 +1,11 @@
 
 # DuckCup project
 
-> (At first I made the name ThreadMind as just an idea from LLM, then I discover that this name is used, so now I am working on changing it to DuckCup, because those were the 2 items that are in front of me)
-
-
 ## Introduction
 
-DuckCup is a full-stack application used for email and telegram messages fetching and analysis, build with Python backend (FastAPI) and React frontend.
+A self-hosted full-stack platform (FastAPI + React) for fethching your Gmail and Telegram messages into encrypted datasets and analysing them with a different options including: Summarizing, Clustering, Topic modeling -Title generation- and Keyword extraction). Using infrastructure built-in NLP pipelines and using third party models connecting to HuggingFace transformers and Pollinations API service.
 
-The backend provides API services for authentication, email/telegram emails and messages fetching, dataset management, and nlp services.
-The frontend provides the user interface for interacting with the system.
+-------
 
 The project can be run in two ways:
 
@@ -25,24 +21,24 @@ The project can be run in two ways:
 - Perform NLP services on your datasets like clustering, summarization,...
 
 Instructions for using the application are available in wiki:
-[Wiki User guide](https://github.com/antoinsader/threadmind/wiki/user_guide)
+[Wiki User guide](https://github.com/antoinsader/duckcup/wiki/user_guide)
 
 ## Quick Start (Recommended: Docker)
 
 The easiest way to run the project is using Docker.
 
-1. Install Docker:
+### 1. Install Docker:
 
 Install Docker and Docker Compose:
 https://docs.docker.com/get-docker/
 
-2. Clone the repository
+### 2. Clone the repository
 ```
-git clone https://github.com/antoinsader/threadmind.git
-cd threadmind
+git clone https://github.com/antoinsader/duckcup.git
+cd duckcup
 ```
 
-3. Configure Docker Compose
+### 3. Configure Docker Compose
 
 Copy the example file:
 ```
@@ -74,7 +70,7 @@ All external traffic goes through nginx. The backend and frontend are not direct
 
 
 
-4. Start the application
+### 4. Start the application
 ```
 docker compose up --build
 ```
@@ -85,7 +81,7 @@ Docker will:
 - generate secrets automatically on first run
 - start all services (nginx, backend, frontend)
 
-5. Access the application
+### 5. Access the application
 
 Application (served through nginx):
 ```

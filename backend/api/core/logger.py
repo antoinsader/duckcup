@@ -23,6 +23,10 @@ ERROR_LOGGER_NAME = "error_logger"
 
 _LOGGING_CONFIGURED = False
 
+class _HealthCheckFilter(logging.Filter):
+    def filter(self, record: logging.LogRecord) -> bool:
+        return "/health" not in record.getMessage()
+
 
 class _ConsoleMessageOnlyFormatter(logging.Formatter):
     def format(self, record):
@@ -84,9 +88,13 @@ def _configure_requests_logger(log_dir: str):
     logger.setLevel(logging.INFO)
     logger.propagate = False
     _remove_handlers(logger)
-    logger.addHandler(
-        _create_rotating_handler(os.path.join(log_dir, "requests.log"), logging.INFO)
+
+
+    handler = _create_rotating_handler(
+        os.path.join(log_dir, "requests.log"), logging.INFO
     )
+    handler.addFilter(_HealthCheckFilter())
+    logger.addHandler(handler)
 
 
 def _configure_warning_logger(log_dir: str):

@@ -2,7 +2,11 @@
 
 DuckCup Frontend is a React application for connecting emails and telegram accounts, browsing content, creating datasets, and running NLP workflows on those datasets.
 
+
 ---
+
+
+
 
 ## Backend Requirement
 
