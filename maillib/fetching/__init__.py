@@ -1,0 +1,1 @@
+from maillib.fetching.data_classes import TelegramEntityResult, TelegramMessageResult

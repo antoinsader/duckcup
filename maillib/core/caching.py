@@ -21,7 +21,6 @@ class LruCachingMemory:
     def __init__(self, max_size: int= 24, expiration_minutes: int = None):
         self.max_size = max_size
         self.expiration_minutes = expiration_minutes
-
         self._cache = OrderedDict()
         self._lock = threading.Lock()
 

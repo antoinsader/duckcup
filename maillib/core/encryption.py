@@ -31,6 +31,9 @@ class FernetEncrypter(Encrypter):
 
     """
     def __init__(self, encryption_key):
+        """
+        encryption_key: [byte or str]: A URL-safe base64-encoded 32-byte key. This must be kept secret
+        """
         secret = encryption_key
         try:
             self.cipher = Fernet(secret.encode())
@@ -41,7 +44,7 @@ class FernetEncrypter(Encrypter):
                 priority=1,
                 ex=ex
             )
-    def encrypt(self, value):
+    def encrypt(self, value) -> bytes:
         try:
             if isinstance(value, str):
                 return self.cipher.encrypt(value.encode("utf-8")).decode("utf-8")

@@ -65,3 +65,6 @@ class InMemoryLruCache:
 
             while len(self._cache) > self.max_size:
                 self._cache.popitem(last=False)
+
+    def exists(self, cache_key):
+        return cache_key in self._cache

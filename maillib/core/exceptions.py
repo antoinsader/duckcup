@@ -11,8 +11,9 @@ class INFRA_WARNING_LAYERS(str, Enum):
 
 class APPLICATION_ERROR_LAYERS(str, Enum):
     GMAIL_AUTHENTICATOR = "app_gmail_authenticator"
+    TELEGRAM_AUTHENTICATOR = "app_telegram_auth"
     OAUTH_INVALID = "app_oauth"
-
+    TELEGRAM_FETCHER = "app_telegram_fetcher"
 
     DEPENDENCY = "api_dependency"
     ENV_CONFIGURATION = "application_env_configuration"

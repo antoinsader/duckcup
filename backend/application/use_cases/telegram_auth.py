@@ -38,7 +38,6 @@ def _load_pending_state(state: str) -> dict:
             layer=ERRORS_LAYERS.API_ROUTES_AUTH,
             only_back_message="Pending telegram auth state not found",
         )
-
     encrypter = FernetEncrypter(settings.backend_secrets_encryption_key.get_secret_value())
     return json.loads(encrypter.decrypt(encrypted_payload))
 
