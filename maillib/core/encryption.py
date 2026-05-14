@@ -36,7 +36,7 @@ class FernetEncrypter(Encrypter):
         """
         secret = encryption_key
         try:
-            self.cipher = Fernet(secret.encode())
+            self.cipher = Fernet(secret)
         except Exception as ex:
             raise InfrastructureError(
                 f"Error creating Fernet cipher",

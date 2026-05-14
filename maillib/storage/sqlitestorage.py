@@ -1,4 +1,5 @@
 
+import os
 import sqlite3
 from maillib.core.exceptions import InfrastructureError, INFRA_ERROR_LAYERS
 
@@ -27,9 +28,16 @@ class StorageCol:
 class SqliteTable:
     def __init__(self, db_path, table_name: str, cols: list[StorageCol]):
         """db_path is the path to sqlite database"""
-        self.db_path = db_path
         self.table_name = table_name
         self.cols = cols
+        if "sqlite:///" in db_path:
+            db_path = db_path.replace("sqlite:///", "")
+        if "sqlite://" in db_path:
+            db_path = db_path.replace("sqlite://", "")
+        self.db_path = db_path
+        db_dir = os.path.dirname(self.db_path)
+        if db_dir:
+            os.makedirs(db_dir, exist_ok=True)
 
     def get_connection(self):
         try:
@@ -76,7 +84,7 @@ class SqliteTable:
                 return True
         except Exception as ex:
             raise InfrastructureError(
-                f"Error creating table: {self.table_name} in sql lite",
+                f"Error inserting into table: {self.table_name} in sql lite",
                 layer=INFRA_ERROR_LAYERS.SQLITE,
                 priority=1,
                 ex=ex,

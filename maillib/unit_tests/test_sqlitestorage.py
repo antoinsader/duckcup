@@ -1,5 +1,5 @@
 import pytest
-from maillib.core.sqlitestorage import StorageCol, SqliteTable
+from maillib.storage.sqlitestorage import StorageCol, SqliteTable
 from maillib.core.exceptions import INFRA_ERROR_LAYERS, InfrastructureError
 
 

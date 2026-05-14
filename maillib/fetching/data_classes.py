@@ -13,6 +13,7 @@ class TelegramEntityResult():
 class TelegramMessageResult():
     message_id: int
     entity_id: str | int | None
+    entity_name: str  | None
     date: str | None
     text: str | None
     clean_text: str | None

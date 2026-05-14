@@ -16,18 +16,17 @@ class TelegramFetcher:
     def __init__(self, refresh_token: str):
         self._connected = False
         auth_data = json.loads(refresh_token)
-        if not {"session_id", "api_id", "api_hash"}.issubset(auth_data.keys()):
+        if not {"session", "api_id", "api_hash"}.issubset(auth_data.keys()):
             raise ApplicationError(
                 f"Invalid telegram refresh token",
                 layer=APPLICATION_ERROR_LAYERS.TELEGRAM_FETCHER,
             )
         self.client = TelegramClient(
-            StringSession(self.auth_data["session"]),
-            api_id=self.auth_data["api_id"],
-            api_hash=self.auth_data["api_hash"],
+            StringSession(auth_data["session"]),
+            api_id=auth_data["api_id"],
+            api_hash=auth_data["api_hash"],
         )
         self.count_messages = 0
-        self._connect()
 
     async def _connect(self):
         if self._connected:
@@ -60,7 +59,7 @@ class TelegramFetcher:
         finally:
             self._connected  = False
 
-    def _clean_message_text(self, message):
+    def _clean_message_text(self, text):
         """ Clean the message text by removing emojis, tags, and non-ascii characters, and normalizing whitespace.
         Returns (cleaned_text, emojis, tags)
         """
@@ -77,7 +76,7 @@ class TelegramFetcher:
         return text.strip(), emojis, tags
 
 
-    async def get_entities(self, limit:int=100):
+    async def get_entities(self, limit:int=100) -> TelegramEntityResult:
         await self._connect()
         dialogs = []
         try:
@@ -104,7 +103,7 @@ class TelegramFetcher:
             return  cached
         await self._connect()
         try:
-            entity = self.client.get_entity(entity_id)
+            entity = await self.client.get_entity(entity_id)
             messages  = []
             async for message in self.client.iter_messages(entity, limit=limit):
                 sender = await message.get_sender() if message.sender_id else None
@@ -115,12 +114,13 @@ class TelegramFetcher:
                     continue
                 language, _ = langid.classify(clean_text)
                 sender = await message.get_sender() if message.sender_id else None
-
+                print(f"entity: {entity}")
+                print(f"sender: {sender}")
                 messages.append(
                     TelegramMessageResult(
                         message_id=message.id,
                         entity_id=entity_id,
-                        entity_name=entity.name,
+                        entity_name=  getattr(entity, "name", getattr(entity, 'title', entity_id))  ,
                         sender_username=getattr(sender, "username", None) if sender else None,
                         date=message.date.isoformat() if message.date else None,
                         text=message.message,
@@ -128,12 +128,13 @@ class TelegramFetcher:
                         emojis=emojis,
                         tags=tags,
                         language=language,
-                        media= bool(message.media),
+                        has_media= bool(message.media),
                     )
                 )
             _chat_messages_cache.put(cache_key, messages)
             return messages
         except Exception as ex:
+            print(ex)
             raise ApplicationError(
                 f"Error fetching telegram messages iteration",
                 APPLICATION_ERROR_LAYERS.TELEGRAM_FETCHER,
